@@ -1,0 +1,370 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Ann">
+  
+  
+  
+  
+    <meta name="description" content="uwsgi+Nginx+django上传项目
+·本地配置服务器:1.uwsgi配置安装uwsgi，将uwsgi.ini文件放到工程目录下，进行相关配置
+1234567891011121314151617[uwsgi]# 使用nginx连接时 使用socket=127.0.0.1:8010# 直接作为web服务器使用#http=127.0.0.1:8010# 配置工程目录chdir=/home...">
+  
+  <title>Django项目上线 [ 代码的世界 ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+  
+
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
+
+</head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+  
+    <div class="item next">
+      <a href="/2018/03/10/Django开发流程/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        Django开发流程
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="/miao.jpg"/>
+          <div id="homelink">代码的世界</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/">首页</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">归档</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">标签</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">目录</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">关于我</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article id="post">
+    <h1>Django项目上线</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">撰写于 2018-03-10</span>
+      
+        <span id = "post-title-updated">修改于 2018-03-10</span>
+      
+      
+      <span id = "post-title-categories">分类
+      
+      
+        
+        
+        <a href="/categories/Django/">Django</a>
+      
+      </span>
+      
+      
+      <span id = "post-title-tags">
+      标签
+      
+      
+        
+        
+        <a href="/tags/Django/">Django</a>
+      
+      </span>
+      
+    </p>
+    
+    <p>uwsgi+Nginx+django上传项目</p>
+<h3 id="·本地配置服务器"><a href="#·本地配置服务器" class="headerlink" title="·本地配置服务器:"></a>·本地配置服务器:</h3><h6 id="1-uwsgi配置"><a href="#1-uwsgi配置" class="headerlink" title="1.uwsgi配置"></a>1.uwsgi配置</h6><p>安装uwsgi，将uwsgi.ini文件放到工程目录下，进行相关配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[uwsgi]</span><br><span class="line"># 使用nginx连接时 使用</span><br><span class="line">socket=127.0.0.1:8010</span><br><span class="line"># 直接作为web服务器使用</span><br><span class="line">#http=127.0.0.1:8010</span><br><span class="line"># 配置工程目录</span><br><span class="line">chdir=/home/rock/Desktop/AXF</span><br><span class="line"># 配置项目的wsgi目录。相对于工程目录</span><br><span class="line">wsgi-file=AXF/wsgi.py</span><br><span class="line"></span><br><span class="line">#配置进程，线程信息</span><br><span class="line">processes=4</span><br><span class="line">threads=2</span><br><span class="line">enable-threads=True</span><br><span class="line">master=True</span><br><span class="line">pidfile=uwsgi.pid</span><br><span class="line">daemonize=uwsgi.log</span><br></pre></td></tr></table></figure>
+<h6 id="2-nginx配置"><a href="#2-nginx配置" class="headerlink" title="2.nginx配置"></a>2.nginx配置</h6><p>去官网下载nginx，<a href="http://nginx.org，不同的系统配置不一样，将nginx.conf文件进行相关配置，（修改ip、端口、静态文件的地址）" target="_blank" rel="noopener">http://nginx.org，不同的系统配置不一样，将nginx.conf文件进行相关配置，（修改ip、端口、静态文件的地址）</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">user  nginx;</span><br><span class="line">worker_processes  1;</span><br><span class="line"></span><br><span class="line">error_log  /var/log/nginx/error.log warn;</span><br><span class="line">pid        /var/run/nginx.pid;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections  1024;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    include       /etc/nginx/mime.types;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line"></span><br><span class="line">    log_format  main  &apos;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &apos;</span><br><span class="line">                      &apos;$status $body_bytes_sent &quot;$http_referer&quot; &apos;</span><br><span class="line">                      &apos;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&apos;;</span><br><span class="line"></span><br><span class="line">    access_log  /var/log/nginx/access.log  main;</span><br><span class="line"></span><br><span class="line">    sendfile        on;</span><br><span class="line">    #tcp_nopush     on;</span><br><span class="line"></span><br><span class="line">    keepalive_timeout  65;</span><br><span class="line"></span><br><span class="line">    #gzip  on;</span><br><span class="line"></span><br><span class="line">    include /etc/nginx/conf.d/*.conf;</span><br><span class="line">   </span><br><span class="line">    server&#123;</span><br><span class="line">		listen 80;</span><br><span class="line">		</span><br><span class="line">		server_name 127.0.0.1;</span><br><span class="line"></span><br><span class="line">		charset utf-8;</span><br><span class="line"></span><br><span class="line">		root	/var/www/learn;</span><br><span class="line"></span><br><span class="line">		index   hello.html;</span><br><span class="line">		</span><br><span class="line">		location / &#123;</span><br><span class="line">			include uwsgi_params;</span><br><span class="line">			uwsgi_pass localhost:8010;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		location /static &#123;</span><br><span class="line">			alias /var/www/learn/static/;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="3-打开uwsgi"><a href="#3-打开uwsgi" class="headerlink" title="3.打开uwsgi"></a>3.打开uwsgi</h6><p>在工程目录下输入下面命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uwsgi --ini uwsgi.ini</span><br></pre></td></tr></table></figure>
+<h6 id="4-打开nginx"><a href="#4-打开nginx" class="headerlink" title="4.打开nginx"></a>4.打开nginx</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx -t -c (nginx.conf的绝对路径)  #测试</span><br><span class="line"> nginx -c (nginx.conf的绝对路径) #启动</span><br></pre></td></tr></table></figure>
+<h3 id="·阿里云服务器上线"><a href="#·阿里云服务器上线" class="headerlink" title="·阿里云服务器上线"></a>·阿里云服务器上线</h3><h6 id="1-创建虚拟环境"><a href="#1-创建虚拟环境" class="headerlink" title="1.创建虚拟环境"></a>1.创建虚拟环境</h6><p>安装虚拟环境<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install virtualenv,virtualenvwrapper</span><br></pre></td></tr></table></figure></p>
+<p>创建文件夹<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir .virtualenvs  #.代表的事隐藏文件</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -a #查看此目录下所有文件</span><br></pre></td></tr></table></figure>
+<p>添加环境变量，编辑  .bashrc，在文件中添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#python </span><br><span class="line">export WORKON_HOME=/root/.virtualenvs</span><br><span class="line">source /usr/bin/virtualenvwrapper.sh</span><br></pre></td></tr></table></figure>
+<p>激活环境变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source .bashrc</span><br></pre></td></tr></table></figure>
+<p>新建虚拟环境<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkvirtualenv 环境名 -p （python3的路径）</span><br></pre></td></tr></table></figure></p>
+<h6 id="2-安装依赖："><a href="#2-安装依赖：" class="headerlink" title="2.安装依赖："></a>2.安装依赖：</h6><p>直接将你的环境中的库生成一个文本文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirments.txt</span><br></pre></td></tr></table></figure>
+<h6 id="3-导数据"><a href="#3-导数据" class="headerlink" title="3.导数据"></a>3.导数据</h6><p>先迁移数据生成表，再用sql语句导入数据</p>
+<h6 id="4-uwsgi-nginx配置"><a href="#4-uwsgi-nginx配置" class="headerlink" title="4.uwsgi+nginx配置"></a>4.uwsgi+nginx配置</h6><p>和本地配置一样，进行相关的nginx 和 uwsgi的配置</p>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">显示目录</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">隐藏目录</button>
+  <div class="random-toc">
+    <h2>目录</h2>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#·本地配置服务器"><span class="toc-text">·本地配置服务器:</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-uwsgi配置"><span class="toc-text">1.uwsgi配置</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-nginx配置"><span class="toc-text">2.nginx配置</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-打开uwsgi"><span class="toc-text">3.打开uwsgi</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-打开nginx"><span class="toc-text">4.打开nginx</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#·阿里云服务器上线"><span class="toc-text">·阿里云服务器上线</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-创建虚拟环境"><span class="toc-text">1.创建虚拟环境</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-安装依赖："><span class="toc-text">2.安装依赖：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-导数据"><span class="toc-text">3.导数据</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-uwsgi-nginx配置"><span class="toc-text">4.uwsgi+nginx配置</span></a></li></ol></li></ol></li></ol></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+
+  
+
+  
+    <a href="/2018/03/10/Django开发流程/" class="next">下一篇 Django开发流程 &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by <a href="https://github.com/Ann32563/Ann32563.github.io.git">Ann</a> using Hexo
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="/miao.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/Ann32563">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://weibo.com/u/5265686023">
+        
+          <i class="icon iconfont weibo">&#xe602;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.zhihu.com/people/xiao-ya-jing-94/activities">
+        
+          <i class="icon iconfont zhihu">&#xe60b;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="http://blog.csdn.net/qq_40072810">
+        
+          csdn
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="http://www.cnblogs.com/Ann32563/">
+        
+          blog
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<div id="btn-view">Hide</div>
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["swirLeft","flash2"],"timer":true,"delay":10000,"shuffle":true,"count":30};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+
+var backgroundColor = "";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+
