@@ -18,11 +18,12 @@
   
     <meta name="description" content="1.搭建环境所有软件都可以去官网下载
 1.安装Node.js安装的时候保持默认的设置即可
-检查版本：在cmd下输入如下的代码，即可查询到安装的版本号12node -vnpm -v
+检查版本：在cmd下输入如下的代码，即可查询到安装的版本号
+  node -v  npm -v
 2.安装git安装的时候保持默认的设置即可
-检查版本：在命令行下输入如下的代码，即可查询到安装的版本号1git -version
-3.github账户的注册和配置1.注册github账号在github官网注册账号
-...">
+检查版本：在命令行下输入如下的代码，即可查询到安装的版本号
+  git -version
+3.github账户的注册和配置1.注册github账号在github官网...">
   
   <title>创建博客 [ 代码的世界 ]</title>
   
@@ -125,7 +126,7 @@
     <p class="page-title-sub">
       <span id = "post-title-date">撰写于 2018-02-17</span>
       
-        <span id = "post-title-updated">修改于 2018-02-17</span>
+        <span id = "post-title-updated">修改于 2018-07-17</span>
       
       
       <span id = "post-title-categories">分类
@@ -152,57 +153,101 @@
     
     <h4 id="1-搭建环境"><a href="#1-搭建环境" class="headerlink" title="1.搭建环境"></a>1.搭建环境</h4><p>所有软件都可以去官网下载</p>
 <h5 id="1-安装Node-js"><a href="#1-安装Node-js" class="headerlink" title="1.安装Node.js"></a>1.安装Node.js</h5><p>安装的时候保持默认的设置即可</p>
-<p>检查版本：<br>在cmd下输入如下的代码，即可查询到安装的版本号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure></p>
+<p>检查版本：<br>在cmd下输入如下的代码，即可查询到安装的版本号</p>
+<p>  node -v<br>  npm -v</p>
 <h5 id="2-安装git"><a href="#2-安装git" class="headerlink" title="2.安装git"></a>2.安装git</h5><p>安装的时候保持默认的设置即可</p>
-<p>检查版本：<br>在命令行下输入如下的代码，即可查询到安装的版本号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git -version</span><br></pre></td></tr></table></figure></p>
+<p>检查版本：<br>在命令行下输入如下的代码，即可查询到安装的版本号</p>
+<p>  git -version</p>
 <h5 id="3-github账户的注册和配置"><a href="#3-github账户的注册和配置" class="headerlink" title="3.github账户的注册和配置"></a>3.github账户的注册和配置</h5><h6 id="1-注册github账号"><a href="#1-注册github账号" class="headerlink" title="1.注册github账号"></a>1.注册github账号</h6><p>在github官网注册账号</p>
 <h6 id="2-创建代码库New-repository"><a href="#2-创建代码库New-repository" class="headerlink" title="2.创建代码库New repository"></a>2.创建代码库New repository</h6><p>· 仓库名后面要加 .github.io</p>
 <h5 id="4-安装hexo"><a href="#4-安装hexo" class="headerlink" title="4.安装hexo"></a>4.安装hexo</h5><h6 id="1-创建一个文件夹"><a href="#1-创建一个文件夹" class="headerlink" title="1.创建一个文件夹"></a>1.创建一个文件夹</h6><p>文件夹用来存放你博客的资源</p>
 <h6 id="2-安装hexo及其它组件"><a href="#2-安装hexo及其它组件" class="headerlink" title="2.安装hexo及其它组件"></a>2.安装hexo及其它组件</h6><p>同时按下windows+r输入cmd，在命令行窗口进入这个目录。或者在这个目录下shift+鼠标右键，选择在此打开命令窗口。<br>在命令行输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line">npm install hexo --save</span><br><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
-<h6 id="3-初始化hexo"><a href="#3-初始化hexo" class="headerlink" title="3.初始化hexo"></a>3.初始化hexo</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br><span class="line">npm install </span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<h6 id="4-生成文件"><a href="#4-生成文件" class="headerlink" title="4.生成文件"></a>4.生成文件</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-<h6 id="5-启动服务器"><a href="#5-启动服务器" class="headerlink" title="5.启动服务器"></a>5.启动服务器</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>  npm install hexo-cli -g<br>  npm install hexo –save<br>  hexo -v</p>
+<h6 id="3-初始化hexo"><a href="#3-初始化hexo" class="headerlink" title="3.初始化hexo"></a>3.初始化hexo</h6><p>  hexo init<br>  npm install<br>  npm install hexo-deployer-git –save</p>
+<h6 id="4-生成文件"><a href="#4-生成文件" class="headerlink" title="4.生成文件"></a>4.生成文件</h6><p>  hexo g</p>
+<h6 id="5-启动服务器"><a href="#5-启动服务器" class="headerlink" title="5.启动服务器"></a>5.启动服务器</h6><p>  hexo s</p>
 <p>在浏览器中打开<a href="http://localhost:4000/，你将会看到hexo的页面。" target="_blank" rel="noopener">http://localhost:4000/，你将会看到hexo的页面。</a></p>
 <h4 id="2-联系hexo与github-page"><a href="#2-联系hexo与github-page" class="headerlink" title="2.联系hexo与github page"></a>2.联系hexo与github page</h4><h5 id="1-配置git个人信息"><a href="#1-配置git个人信息" class="headerlink" title="1.配置git个人信息"></a>1.配置git个人信息</h5><p>之前配置过可以忽略这个步骤，在git bash中输入以下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;你的github用户名&quot;  #配置用户信息</span><br><span class="line">git config --global user.email &quot;你注册github的邮箱&quot;</span><br><span class="line">ssh-keygen -t rsa -C &quot;邮箱&quot;     #生成密钥</span><br></pre></td></tr></table></figure>
+<p>  git config –global user.name “你的github用户名”  #配置用户信息<br>  git config –global user.email “你注册github的邮箱”<br>  ssh-keygen -t rsa -C “邮箱”     #生成密钥</p>
 <h6 id="1-添加公有密钥"><a href="#1-添加公有密钥" class="headerlink" title="1.添加公有密钥"></a>1.添加公有密钥</h6><p>记住生成密钥.ssh的目录，登录github官网，在settings的SSH and GPG keys中添加ssh keys，就是你刚刚生成的id_rsa.pub，将末尾的邮箱去掉。</p>
 <h6 id="2-测试密钥是否通过"><a href="#2-测试密钥是否通过" class="headerlink" title="2.测试密钥是否通过"></a>2.测试密钥是否通过</h6><p>在git bash 中输入命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<p>  ssh -T git@github.com</p>
 <p>密钥通过了的话，github官网的添加ssh keys 那里，你刚刚添加的密钥会变绿。</p>
 <h5 id="2-配置deployment"><a href="#2-配置deployment" class="headerlink" title="2.配置deployment"></a>2.配置deployment</h5><p>按如下修改你在安装hexo时创建的文件夹的根目录下的_config.yml文件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:你的用户名/你的用户名.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<h4 id="3-配置博客的主题"><a href="#3-配置博客的主题" class="headerlink" title="3.配置博客的主题"></a>3.配置博客的主题</h4><h5 id="1-主题安装"><a href="#1-主题安装" class="headerlink" title="1.主题安装"></a>1.主题安装</h5><p>去<a href="https://hexo.io/themes/找主题，在Git" target="_blank" rel="noopener">https://hexo.io/themes/找主题，在Git</a> Base中输入相对应的主题的github地址。我的博客使用的是random主题。在Git Base中输入命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/stiekel/hexo-theme-random.git themes/random</span><br></pre></td></tr></table></figure></p>
+<p>  deploy:<br>    type: git<br>    repo: git@github.com:你的用户名/你的用户名.github.io.git<br>    branch: master</p>
+<h4 id="3-配置博客的主题"><a href="#3-配置博客的主题" class="headerlink" title="3.配置博客的主题"></a>3.配置博客的主题</h4><h5 id="1-主题安装"><a href="#1-主题安装" class="headerlink" title="1.主题安装"></a>1.主题安装</h5><p>去<a href="https://hexo.io/themes/找主题，在Git" target="_blank" rel="noopener">https://hexo.io/themes/找主题，在Git</a> Base中输入相对应的主题的github地址。我的博客使用的是random主题。在Git Base中输入命令</p>
+<p>  git clone <a href="https://github.com/stiekel/hexo-theme-random.git" target="_blank" rel="noopener">https://github.com/stiekel/hexo-theme-random.git</a> themes/random</p>
 <h5 id="2-使用主题"><a href="#2-使用主题" class="headerlink" title="2.使用主题"></a>2.使用主题</h5><p>修改你在安装hexo时创建的文件夹的根目录下的_config.yml文件，将主题改为你下载的，例如我的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: random</span><br></pre></td></tr></table></figure>
+<p>  theme: random</p>
 <h5 id="3-设置主题"><a href="#3-设置主题" class="headerlink" title="3.设置主题"></a>3.设置主题</h5><p>一般在你下载的主题的github项目会有主题的设置文档。<br>我的主题的设置文档如下：</p>
 <h6 id="1-头像设置"><a href="#1-头像设置" class="headerlink" title="1.头像设置"></a>1.头像设置</h6><p>可以在 Hexo 主配置文件，或者主题的配置文件 theme/random/_config.yml ，修改 avatar 配置，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">avatar: /miao.jpg</span><br></pre></td></tr></table></figure>
+<p>  avatar: /miao.jpg</p>
 <h6 id="2-菜单与导航栏的设置"><a href="#2-菜单与导航栏的设置" class="headerlink" title="2.菜单与导航栏的设置"></a>2.菜单与导航栏的设置</h6><p>可以在主题的配置文件（theme/random/_config.yml）中自定义。如果想链接到标签和分类的列表页，还需要自己手动创建对应页面。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  首页: /</span><br><span class="line">  归档: /archives</span><br><span class="line">  标签: /tags</span><br><span class="line">  目录: /categories</span><br><span class="line">  关于我: /about</span><br></pre></td></tr></table></figure>
-<p>执行如下命令会生成一个source/tags/index.md 文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page tags  #创建新的菜单页面</span><br></pre></td></tr></table></figure></p>
+<p>  menu:<br>    首页: /<br>    归档: /archives<br>    标签: /tags<br>    目录: /categories<br>    关于我: /about</p>
+<p>执行如下命令会生成一个source/tags/index.md 文件</p>
+<p>  hexo new page tags  #创建新的菜单页面</p>
 <p>编辑文件，修改文件的 type 项为 tags，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: 标签</span><br><span class="line">date: 2016-01-16 06:17:29</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">comments: false</span><br></pre></td></tr></table></figure>
+<p>  title: 标签<br>  date: 2016-01-16 06:17:29<br>  type: “tags”<br>  comments: false</p>
 <h6 id="3-社交网站连接配置"><a href="#3-社交网站连接配置" class="headerlink" title="3.社交网站连接配置"></a>3.社交网站连接配置</h6><p>需要在主题的配置文件 theme/random/_config.yml 中添加对应的配置，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">social:</span><br><span class="line">  GitHub: https://github.com/Ann32563</span><br><span class="line">  Weibo: https://weibo.com/u/5265686023</span><br><span class="line">  zhihu: https://www.zhihu.com/people/xiao-ya-jing-94/activities</span><br><span class="line">  csdn: http://blog.csdn.net/qq_40072810</span><br><span class="line">  blog: http://www.cnblogs.com/Ann32563/</span><br></pre></td></tr></table></figure>
+<p>  social:<br>    GitHub: <a href="https://github.com/Ann32563" target="_blank" rel="noopener">https://github.com/Ann32563</a><br>    Weibo: <a href="https://weibo.com/u/5265686023" target="_blank" rel="noopener">https://weibo.com/u/5265686023</a><br>    zhihu: <a href="https://www.zhihu.com/people/xiao-ya-jing-94/activities" target="_blank" rel="noopener">https://www.zhihu.com/people/xiao-ya-jing-94/activities</a><br>    csdn: <a href="http://blog.csdn.net/qq_40072810" target="_blank" rel="noopener">http://blog.csdn.net/qq_40072810</a><br>    blog: <a href="http://www.cnblogs.com/Ann32563/" target="_blank" rel="noopener">http://www.cnblogs.com/Ann32563/</a></p>
 <h6 id="4-第三方服务配置"><a href="#4-第三方服务配置" class="headerlink" title="4.第三方服务配置"></a>4.第三方服务配置</h6><p>本主题支持 Google Analytics / 百度统计 / Disqus / 友言 / JiaThis，即可以在主题配置文件中设置，也可以在博客的主配置文件中设置，增加项目如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># Google analytics</span><br><span class="line">google_analytics:</span><br><span class="line"># Baidu tongji</span><br><span class="line">baidu_analytics:</span><br><span class="line"># Disqus</span><br><span class="line">disqus_shortname:</span><br><span class="line"># Uyan</span><br><span class="line">uyan_id:</span><br><span class="line"># jiaThis</span><br><span class="line">jiaThis_uid: </span><br><span class="line">jiathisConfig:</span><br><span class="line">  data_track_clickback: true</span><br><span class="line">  summary: &quot;&quot;</span><br><span class="line">  showClose: true</span><br><span class="line">  shortUrl: false</span><br><span class="line">  hideMore: false</span><br></pre></td></tr></table></figure>
+<h1 id="Google-analytics"><a href="#Google-analytics" class="headerlink" title="Google analytics"></a>Google analytics</h1><p>  google_analytics:</p>
+<h1 id="Baidu-tongji"><a href="#Baidu-tongji" class="headerlink" title="Baidu tongji"></a>Baidu tongji</h1><p>  baidu_analytics:</p>
+<h1 id="Disqus"><a href="#Disqus" class="headerlink" title="Disqus"></a>Disqus</h1><p>  disqus_shortname:</p>
+<h1 id="Uyan"><a href="#Uyan" class="headerlink" title="Uyan"></a>Uyan</h1><p>  uyan_id:</p>
+<h1 id="jiaThis"><a href="#jiaThis" class="headerlink" title="jiaThis"></a>jiaThis</h1><p>  jiaThis_uid:<br>  jiathisConfig:<br>    data_track_clickback: true<br>    summary: “”<br>    showClose: true<br>    shortUrl: false<br>    hideMore: false</p>
 <p>也可忽略特定服务器的访问统计</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">isIgnoreSpecialHostVisitor: true</span><br><span class="line">ignoreHostList:</span><br><span class="line">  - localhost</span><br><span class="line">  - 127.0.0.1</span><br></pre></td></tr></table></figure>
-<h6 id="5-hide按钮"><a href="#5-hide按钮" class="headerlink" title="5.hide按钮"></a>5.hide按钮</h6><p>在每个页面的左下角，都有一个 Hide 按钮，点击这个按钮之后，按钮之外的东西都会被隐藏。如果不想显示这个按钮，可以在主题或者 Hexo 的主配置文件中修改 hideButtonVisibility，设置为 false：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hideButtonVisibility: false</span><br></pre></td></tr></table></figure></p>
-<h6 id="6-背景图设置"><a href="#6-背景图设置" class="headerlink" title="6.背景图设置"></a>6.背景图设置</h6><p>使用 unsplash 提供的随机图片。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">unsplashConfig:</span><br><span class="line">  # 关于这几个配置项的说明，请参见 https://unsplash.it/</span><br><span class="line">  # blur: true # 给图片增加模糊特效</span><br><span class="line">  gravity: &apos;north&apos; # north, east, south, west, center # 图片翻转</span><br><span class="line">  # greyscale: true # 使用灰度图片</span><br></pre></td></tr></table></figure></p>
-<p>可以自己配置背景图片，也是在主题配置文件中进行，URL 中的 <strong>width</strong> 和 <strong>height</strong> ，在请求时，会替换为浏览器的宽度和高度值，如果你的图片服务器支持按分辨率裁剪，那就可以用得上。如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">backgroundImages:</span><br><span class="line">- http://7te9fe.com1.z0.glb.clouddn.com/bgimg_1.jpg?imageView2/1/w/__width__/h/__height__</span><br><span class="line">- http://7te9fe.com1.z0.glb.clouddn.com/bgimg_2.jpg?imageView2/1/w/__width__/h/__height__</span><br><span class="line">- http://7te9fe.com1.z0.glb.clouddn.com/bgimg_3.jpg?imageView2/1/w/__width__/h/__height__</span><br><span class="line">- http://7te9fe.com1.z0.glb.clouddn.com/bgimg_4.jpg?imageView2/1/w/__width__/h/__height__</span><br></pre></td></tr></table></figure>
-<h6 id="7-背景图轮播设置"><a href="#7-背景图轮播设置" class="headerlink" title="7.背景图轮播设置"></a>7.背景图轮播设置</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">vegasConfig:</span><br><span class="line">  # animation: &apos;random&apos;</span><br><span class="line">  preloadImage: true # 图片预加载配置</span><br><span class="line">  transition: # 图片的切换物资</span><br><span class="line">    - slideLeft2</span><br><span class="line">    - slideRight2</span><br><span class="line">    # - zoomIn</span><br><span class="line">    # - swirLeft</span><br><span class="line">    # - swirRight</span><br><span class="line">    # - flash</span><br><span class="line">    - flash2</span><br><span class="line">  # transition: &apos;swirlRight&apos; # 可以只配置一个</span><br><span class="line">  timer: true # 是否显示时间进度条</span><br><span class="line">  delay: 5000 # 每张图片的显示时间</span><br><span class="line">  shuffle: true # 按顺序播放，还是随机播放</span><br><span class="line">  count: 10 #一共多少张图片</span><br></pre></td></tr></table></figure>
-<p>关闭背景图轮播</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">turnoffBackgroundImage: </span><br><span class="line">  # home page</span><br><span class="line">  index: false</span><br><span class="line">  # arcihve / categories / tags</span><br><span class="line">  post_list: false</span><br><span class="line">  # post and page</span><br><span class="line">  post: true</span><br></pre></td></tr></table></figure>
-<p>关闭背景图后，可以通过下面的变量来设置背景色，注意，不要包括 # ：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">backgroundColor: D7CCC8</span><br></pre></td></tr></table></figure>
+<p>  isIgnoreSpecialHostVisitor: true<br>  ignoreHostList:</p>
+<pre><code>- localhost
+- 127.0.0.1
+</code></pre><h6 id="5-hide按钮"><a href="#5-hide按钮" class="headerlink" title="5.hide按钮"></a>5.hide按钮</h6><p>在每个页面的左下角，都有一个 Hide 按钮，点击这个按钮之后，按钮之外的东西都会被隐藏。如果不想显示这个按钮，可以在主题或者 Hexo 的主配置文件中修改 hideButtonVisibility，设置为 false：</p>
+<p>  hideButtonVisibility: false</p>
+<h6 id="6-背景图设置"><a href="#6-背景图设置" class="headerlink" title="6.背景图设置"></a>6.背景图设置</h6><p>使用 unsplash 提供的随机图片。</p>
+<p>  unsplashConfig:</p>
+<pre><code># 关于这几个配置项的说明，请参见 https://unsplash.it/
+# blur: true # 给图片增加模糊特效
+gravity: &apos;north&apos; # north, east, south, west, center # 图片翻转
+# greyscale: true # 使用灰度图片
+</code></pre><p>可以自己配置背景图片，也是在主题配置文件中进行，URL 中的 <strong>width</strong> 和 <strong>height</strong> ，在请求时，会替换为浏览器的宽度和高度值，如果你的图片服务器支持按分辨率裁剪，那就可以用得上。如下：</p>
+<p>  backgroundImages:</p>
+<ul>
+<li><a href="http://7te9fe.com1.z0.glb.clouddn.com/bgimg_1.jpg?imageView2/1/w/__width__/h/__height__" target="_blank" rel="noopener">http://7te9fe.com1.z0.glb.clouddn.com/bgimg_1.jpg?imageView2/1/w/__width__/h/__height__</a></li>
+<li><a href="http://7te9fe.com1.z0.glb.clouddn.com/bgimg_2.jpg?imageView2/1/w/__width__/h/__height__" target="_blank" rel="noopener">http://7te9fe.com1.z0.glb.clouddn.com/bgimg_2.jpg?imageView2/1/w/__width__/h/__height__</a></li>
+<li><a href="http://7te9fe.com1.z0.glb.clouddn.com/bgimg_3.jpg?imageView2/1/w/__width__/h/__height__" target="_blank" rel="noopener">http://7te9fe.com1.z0.glb.clouddn.com/bgimg_3.jpg?imageView2/1/w/__width__/h/__height__</a></li>
+<li><a href="http://7te9fe.com1.z0.glb.clouddn.com/bgimg_4.jpg?" target="_blank" rel="noopener">http://7te9fe.com1.z0.glb.clouddn.com/bgimg_4.jpg?</a><h6 id="7-背景图轮播设置"><a href="#7-背景图轮播设置" class="headerlink" title="7.背景图轮播设置"></a>7.背景图轮播设置</h6></li>
+</ul>
+<p>  vegasConfig:</p>
+<pre><code># animation: &apos;random&apos;
+preloadImage: true # 图片预加载配置
+transition: # 图片的切换物资
+  - slideLeft2
+  - slideRight2
+  # - zoomIn
+  # - swirLeft
+  # - swirRight
+  # - flash
+  - flash2
+# transition: &apos;swirlRight&apos; # 可以只配置一个
+timer: true # 是否显示时间进度条
+delay: 5000 # 每张图片的显示时间
+shuffle: true # 按顺序播放，还是随机播放
+count: 10 #一共多少张图片
+</code></pre><p>关闭背景图轮播</p>
+<p>  turnoffBackgroundImage: </p>
+<pre><code># home page
+index: false
+# arcihve / categories / tags
+post_list: false
+# post and page
+post: true
+</code></pre><p>关闭背景图后，可以通过下面的变量来设置背景色，注意，不要包括 # ：</p>
+<p>  backgroundColor: D7CCC8</p>
 <h4 id="4-写博客、发布文章"><a href="#4-写博客、发布文章" class="headerlink" title="4.写博客、发布文章"></a>4.写博客、发布文章</h4><h5 id="1-新建一篇博客"><a href="#1-新建一篇博客" class="headerlink" title="1.新建一篇博客"></a>1.新建一篇博客</h5><p>在hexo的目录下打开命令行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new post &quot;你文章的标题&quot;</span><br></pre></td></tr></table></figure>
+<p>  hexo new post “你文章的标题”</p>
 <p>这时候你再hexo目录下的\source\ _posts 将会看到    你文章的标题.md 文件，用markdown编写文章</p>
-<h5 id="2-部署上线"><a href="#2-部署上线" class="headerlink" title="2.部署上线"></a>2.部署上线</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<p>或者可以一步完成生成和部署<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure></p>
+<h5 id="2-部署上线"><a href="#2-部署上线" class="headerlink" title="2.部署上线"></a>2.部署上线</h5><p>  hexo g<br>  hexo d</p>
+<p>或者可以一步完成生成和部署</p>
+<p>  hexo d -g</p>
 <p>部署成功后访问 你的地址，<a href="https://你的用户名.github.io" target="_blank" rel="noopener">https://你的用户名.github.io</a></p>
 
   </article>
@@ -211,7 +256,7 @@
   <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">隐藏目录</button>
   <div class="random-toc">
     <h2>目录</h2>
-    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-搭建环境"><span class="toc-text">1.搭建环境</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-安装Node-js"><span class="toc-text">1.安装Node.js</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-安装git"><span class="toc-text">2.安装git</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-github账户的注册和配置"><span class="toc-text">3.github账户的注册和配置</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-注册github账号"><span class="toc-text">1.注册github账号</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-创建代码库New-repository"><span class="toc-text">2.创建代码库New repository</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-安装hexo"><span class="toc-text">4.安装hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-创建一个文件夹"><span class="toc-text">1.创建一个文件夹</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-安装hexo及其它组件"><span class="toc-text">2.安装hexo及其它组件</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-初始化hexo"><span class="toc-text">3.初始化hexo</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-生成文件"><span class="toc-text">4.生成文件</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5-启动服务器"><span class="toc-text">5.启动服务器</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-联系hexo与github-page"><span class="toc-text">2.联系hexo与github page</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-配置git个人信息"><span class="toc-text">1.配置git个人信息</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-添加公有密钥"><span class="toc-text">1.添加公有密钥</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-测试密钥是否通过"><span class="toc-text">2.测试密钥是否通过</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-配置deployment"><span class="toc-text">2.配置deployment</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-配置博客的主题"><span class="toc-text">3.配置博客的主题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-主题安装"><span class="toc-text">1.主题安装</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-使用主题"><span class="toc-text">2.使用主题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-设置主题"><span class="toc-text">3.设置主题</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-头像设置"><span class="toc-text">1.头像设置</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-菜单与导航栏的设置"><span class="toc-text">2.菜单与导航栏的设置</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-社交网站连接配置"><span class="toc-text">3.社交网站连接配置</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-第三方服务配置"><span class="toc-text">4.第三方服务配置</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5-hide按钮"><span class="toc-text">5.hide按钮</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#6-背景图设置"><span class="toc-text">6.背景图设置</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#7-背景图轮播设置"><span class="toc-text">7.背景图轮播设置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-写博客、发布文章"><span class="toc-text">4.写博客、发布文章</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-新建一篇博客"><span class="toc-text">1.新建一篇博客</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-部署上线"><span class="toc-text">2.部署上线</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-搭建环境"><span class="toc-text">1.搭建环境</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-安装Node-js"><span class="toc-text">1.安装Node.js</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-安装git"><span class="toc-text">2.安装git</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-github账户的注册和配置"><span class="toc-text">3.github账户的注册和配置</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-注册github账号"><span class="toc-text">1.注册github账号</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-创建代码库New-repository"><span class="toc-text">2.创建代码库New repository</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-安装hexo"><span class="toc-text">4.安装hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-创建一个文件夹"><span class="toc-text">1.创建一个文件夹</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-安装hexo及其它组件"><span class="toc-text">2.安装hexo及其它组件</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-初始化hexo"><span class="toc-text">3.初始化hexo</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-生成文件"><span class="toc-text">4.生成文件</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5-启动服务器"><span class="toc-text">5.启动服务器</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-联系hexo与github-page"><span class="toc-text">2.联系hexo与github page</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-配置git个人信息"><span class="toc-text">1.配置git个人信息</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-添加公有密钥"><span class="toc-text">1.添加公有密钥</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-测试密钥是否通过"><span class="toc-text">2.测试密钥是否通过</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-配置deployment"><span class="toc-text">2.配置deployment</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-配置博客的主题"><span class="toc-text">3.配置博客的主题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-主题安装"><span class="toc-text">1.主题安装</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-使用主题"><span class="toc-text">2.使用主题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-设置主题"><span class="toc-text">3.设置主题</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-头像设置"><span class="toc-text">1.头像设置</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-菜单与导航栏的设置"><span class="toc-text">2.菜单与导航栏的设置</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-社交网站连接配置"><span class="toc-text">3.社交网站连接配置</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-第三方服务配置"><span class="toc-text">4.第三方服务配置</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Google-analytics"><span class="toc-text">Google analytics</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Baidu-tongji"><span class="toc-text">Baidu tongji</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Disqus"><span class="toc-text">Disqus</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Uyan"><span class="toc-text">Uyan</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jiaThis"><span class="toc-text">jiaThis</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#5-hide按钮"><span class="toc-text">5.hide按钮</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#6-背景图设置"><span class="toc-text">6.背景图设置</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#7-背景图轮播设置"><span class="toc-text">7.背景图轮播设置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-写博客、发布文章"><span class="toc-text">4.写博客、发布文章</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-新建一篇博客"><span class="toc-text">1.新建一篇博客</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-部署上线"><span class="toc-text">2.部署上线</span></a></li></ol></li></ol>
   </div>
 </div>
 
