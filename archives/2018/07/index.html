@@ -1,10 +1,14 @@
 
 
+    
+
+
+
 
   
 
 
-
+  
 
 
 <!doctype html>
@@ -20,7 +24,7 @@
   
     <meta name="description" content="">
   
-  <title>标签: 科学上网 [ 代码的世界 ]</title>
+  <title>归档: 7/2018: 2018 [ 代码的世界 ]</title>
   
   
     <link rel="shortcut icon" href="/favicon.ico">
@@ -68,14 +72,14 @@
           </li>
         
           
-            <li>
+            <li class="active">
           
             <a href="/archives">归档</a>
             
           </li>
         
           
-            <li class="active">
+            <li>
           
             <a href="/tags">标签</a>
             
@@ -107,8 +111,47 @@
     <div id="content-inner">
       
       
-  <div id="tag">
-    <h1>科学上网</h1>
+  <article>
+    
+
+  <div id="recent-posts">
+    <h1>归档
+    
+      <span class="posts-count">
+      共
+      1
+      
+        文章
+      
+      </span>
+    
+    </h1>
+
+    <div id="play-button"  style="width: 33px;height: 33px;">
+		  <img id="play-img" src="/play.png"  style="width: 33px;height: 33px;"></img>
+    </div>
+    <audio id="bgaudio" loop="loop" preload="none">
+		  <source src=http://cdn.calm.com/scenes/scene-Qqkzy9k7Eo.m4a?v=1418162240715 type="audio/mpeg">
+    </audio>
+
+    <script>
+		  $(document).ready(function() {
+		  //播放按钮点击
+        var audio = $("#bgaudio")[0];
+        var img = $("#play-img")[0];
+			  $("#play-button").click(function() {
+				  if(audio.paused || audio.ended) {
+						audio.play();
+						img.src = "/pause.png";
+					} else {
+						  audio.pause();
+						  img.src = "/play.png";
+					}
+				});
+			});
+    </script>
+
+    
     
       
       
@@ -116,33 +159,39 @@
       
       
     
-      
-      
-      
+    
     
       
       
         
+        <h3 class="archive-year-title">2018
+        
+          <span class="posts-count">
+          共
+          1
           
+            文章
+          
+          </span>
         
-      
+        </h3>
       
       <div class="post-title-item">
   
-  <a href="/2018/03/10/科学上网/">
+  <a href="/2018/07/17/flask/">
   
-    科学上网
+    flask相关笔记
   
   </a>
   <p class="page-title-sub">
-    <span id = "post-title-date">3-10</span>
+    <span id = "post-title-date">7-17</span>
     
     <span id = "post-title-categories">分类
     
     
       
       
-      <a href="/categories/科学上网/">科学上网</a>
+      <a href="/categories/flask/">flask</a>
     
     </span>
     
@@ -153,7 +202,7 @@
     
       
       
-      <a href="/tags/科学上网/">科学上网</a>
+      <a href="/tags/flask/">flask</a>
     
     </span>
     
@@ -165,29 +214,11 @@
   </p>
   
 </div>
-      
-    
-      
-      
-        
-      
-      
-    
-      
-      
-        
-      
-      
-    
-      
-      
-        
-      
-      
     
   </div>
 
-  
+
+  </article>
 
       
       
