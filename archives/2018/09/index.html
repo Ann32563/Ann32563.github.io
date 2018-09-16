@@ -1,10 +1,14 @@
 
 
+    
+
+
 
 
   
 
 
+  
 
 
 <!doctype html>
@@ -20,7 +24,7 @@
   
     <meta name="description" content="">
   
-  <title>分类: 科学上网 [ 代码的世界 ]</title>
+  <title>归档: 9/2018: 2018 [ 代码的世界 ]</title>
   
   
     <link rel="shortcut icon" href="/favicon.ico">
@@ -68,7 +72,7 @@
           </li>
         
           
-            <li>
+            <li class="active">
           
             <a href="/archives">归档</a>
             
@@ -82,7 +86,7 @@
           </li>
         
           
-            <li class="active">
+            <li>
           
             <a href="/categories">目录</a>
             
@@ -107,128 +111,87 @@
     <div id="content-inner">
       
       
-  <article id="page">
+  <article>
+    
+
+  <div id="recent-posts">
+    <h1>归档
+    
+      <span class="posts-count">
+      共
+      1
+      
+        文章
+      
+      </span>
+    
+    </h1>
+
+    <div id="play-button"  style="width: 33px;height: 33px;">
+		  <img id="play-img" src="/play.png"  style="width: 33px;height: 33px;"></img>
+    </div>
+    <audio id="bgaudio" loop="loop" preload="none">
+		  <source src=http://cdn.calm.com/scenes/scene-Qqkzy9k7Eo.m4a?v=1418162240715 type="audio/mpeg">
+    </audio>
+
+    <script>
+		  $(document).ready(function() {
+		  //播放按钮点击
+        var audio = $("#bgaudio")[0];
+        var img = $("#play-img")[0];
+			  $("#play-button").click(function() {
+				  if(audio.paused || audio.ended) {
+						audio.play();
+						img.src = "/pause.png";
+					} else {
+						  audio.pause();
+						  img.src = "/play.png";
+					}
+				});
+			});
+    </script>
+
+    
     
       
-    
+      
+        
+      
       
     
-      
+    
     
       
-    
       
-    
-      
-        <h1 class="center-title">
-          分类
+        
+        <h3 class="archive-year-title">2018
+        
+          <span class="posts-count">
+          共
+          1
           
-        </h1>
-      
-    
-    <ul class="category-list">
-      
-        <li class="category-list-item">
-        
-          <a href="/categories/flask/">flask</a>
-        
-          <span class="category-list-count">1</span>
-        </li>
-      
-        <li class="category-list-item">
-        
-          <a href="/categories/Django/">Django</a>
-        
-          <span class="category-list-count">2</span>
-        </li>
-      
-        <li class="category-list-item">
-        
-          <a href="/categories/docker/">docker</a>
-        
-          <span class="category-list-count">1</span>
-        </li>
-      
-        <li class="category-list-item">
-        
-          <a href="/categories/爬虫/">爬虫</a>
-        
-          <span class="category-list-count">1</span>
-        </li>
-      
-        <li class="category-list-item">
-        
-          <a href="/categories/创建博客/">创建博客</a>
-        
-          <span class="category-list-count">1</span>
-        </li>
-      
-        <li class="category-list-item">
-        
-          <a class="active" href="/categories/科学上网/">科学上网</a>
-        
-          <span class="category-list-count">1</span>
-        </li>
-      
-    </ul>
-    
-      
-      
-        
-      
-      
-    
-      
-      
-        
-      
-      
-    
-      
-      
-        
-      
-      
-    
-      
-      
-        
-      
-      
-    
-      
-      
-      
-    
-      
-      
-        
-      
-      
-    
-      
-      
-        
+            文章
           
+          </span>
         
-      
+        </h3>
       
       <div class="post-title-item">
   
-  <a href="/2018/03/10/科学上网/">
+  <a href="/2018/09/16/docker基础运用/">
   
-    科学上网
+    docker基础运用
   
   </a>
   <p class="page-title-sub">
-    <span id = "post-title-date">3-10</span>
+    <span id = "post-title-date">9-16</span>
     
     <span id = "post-title-categories">分类
     
     
       
       
-      <a href="/categories/科学上网/">科学上网</a>
+      <a href="/categories/docker/">docker</a>
     
     </span>
     
@@ -239,7 +202,7 @@
     
       
       
-      <a href="/tags/科学上网/">科学上网</a>
+      <a href="/tags/docker/">docker</a>
     
     </span>
     
@@ -251,17 +214,11 @@
   </p>
   
 </div>
-      
     
-      
-      
-        
-      
-      
-    
-  </article>
+  </div>
 
-  
+
+  </article>
 
       
       
