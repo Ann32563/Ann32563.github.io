@@ -1,0 +1,1167 @@
+
+
+    
+
+
+
+
+
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Ann">
+  
+  
+  
+  
+    <meta name="description" content="">
+  
+  <title>归档 [ 代码的世界 ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+  
+
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
+
+</head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="/miao.jpg"/>
+          <div id="homelink">代码的世界</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/">首页</a>
+            
+          </li>
+        
+          
+            <li class="active">
+          
+            <a href="/archives">归档</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">标签</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">目录</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">关于我</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article>
+    
+
+  <div id="recent-posts">
+    <h1>归档
+    
+        <span class="posts-count">
+        共
+        17
+        
+            文章
+        
+        </span>
+    
+    </h1>
+
+    <div id="play-button"  style="width: 33px;height: 33px;">
+		  <img id="play-img" src="/play.png"  style="width: 33px;height: 33px;"></img>
+    </div>
+    <audio id="bgaudio" loop="loop" preload="none">
+		  <source src=http://cdn.calm.com/scenes/scene-Qqkzy9k7Eo.m4a?v=1418162240715 type="audio/mpeg">
+    </audio>
+
+    <script>
+		  $(document).ready(function() {
+		  //播放按钮点击
+        var audio = $("#bgaudio")[0];
+        var img = $("#play-img")[0];
+			  $("#play-button").click(function() {
+				  if(audio.paused || audio.ended) {
+						audio.play();
+						img.src = "/pause.png";
+					} else {
+						  audio.pause();
+						  img.src = "/play.png";
+					}
+				});
+			});
+    </script>
+
+    
+    
+        
+        
+            
+        
+        
+    
+        
+        
+        
+    
+        
+        
+            
+        
+        
+    
+        
+        
+        
+    
+        
+        
+        
+    
+        
+        
+        
+    
+        
+        
+        
+    
+        
+        
+        
+    
+        
+        
+        
+    
+        
+        
+        
+    
+        
+        
+        
+    
+        
+        
+        
+    
+        
+        
+        
+    
+        
+        
+        
+    
+        
+        
+        
+    
+        
+        
+        
+    
+        
+        
+        
+    
+    
+    
+        
+        
+            
+            <h3 class="archive-year-title">2018
+            
+                <span class="posts-count">
+                共
+                10
+                
+                    文章
+                
+                </span>
+            
+            </h3>
+        
+        <div class="post-title-item">
+  
+  <a href="/2018/03/10/Django开发流程/">
+  
+    Django开发流程
+  
+  </a>
+  <p class="page-title-sub">
+    <span id = "post-title-date">3-10</span>
+    
+    <span id = "post-title-categories">分类
+    
+    
+      
+      
+      <a href="/categories/Django/">Django</a>
+    
+    </span>
+    
+    
+    <span id = "post-title-tags">
+    标签
+    
+    
+      
+      
+      <a href="/tags/Django/">Django</a>
+    
+    </span>
+    
+    
+      <br>
+      
+      
+    
+  </p>
+  
+</div>
+    
+        
+        
+        <div class="post-title-item">
+  
+  <a href="/2018/03/10/Django项目上线/">
+  
+    Django项目上线
+  
+  </a>
+  <p class="page-title-sub">
+    <span id = "post-title-date">3-10</span>
+    
+    <span id = "post-title-categories">分类
+    
+    
+      
+      
+      <a href="/categories/Django/">Django</a>
+    
+    </span>
+    
+    
+    <span id = "post-title-tags">
+    标签
+    
+    
+      
+      
+      <a href="/tags/Django/">Django</a>
+    
+    </span>
+    
+    
+      <br>
+      
+      
+    
+  </p>
+  
+</div>
+    
+        
+        
+            
+            <h3 class="archive-year-title">2019
+            
+                <span class="posts-count">
+                共
+                7
+                
+                    文章
+                
+                </span>
+            
+            </h3>
+        
+        <div class="post-title-item">
+  
+  <a href="/2019/09/27/django自定义command/">
+  
+    django自定义command
+  
+  </a>
+  <p class="page-title-sub">
+    <span id = "post-title-date">9-27</span>
+    
+    <span id = "post-title-categories">分类
+    
+    
+      
+      
+      <a href="/categories/Django/">Django</a>
+    
+    </span>
+    
+    
+    <span id = "post-title-tags">
+    标签
+    
+    
+      
+      
+      <a href="/tags/Django/">Django</a>
+    
+    </span>
+    
+    
+      <br>
+      
+      
+    
+  </p>
+  
+</div>
+    
+        
+        
+        <div class="post-title-item">
+  
+  <a href="/2019/09/21/angular环境准备及项目创建/">
+  
+    angular环境准备及项目创建
+  
+  </a>
+  <p class="page-title-sub">
+    <span id = "post-title-date">9-21</span>
+    
+    <span id = "post-title-categories">分类
+    
+    
+      
+      
+      <a href="/categories/angular/">angular</a>
+    
+    </span>
+    
+    
+    <span id = "post-title-tags">
+    标签
+    
+    
+      
+      
+      <a href="/tags/angular/">angular</a>
+    
+    </span>
+    
+    
+      <br>
+      
+      
+    
+  </p>
+  
+</div>
+    
+        
+        
+        <div class="post-title-item">
+  
+  <a href="/2019/09/21/angular-django跨域处理/">
+  
+    angular+django跨域处理
+  
+  </a>
+  <p class="page-title-sub">
+    <span id = "post-title-date">9-21</span>
+    
+    <span id = "post-title-categories">分类
+    
+    
+      
+      
+      <a href="/categories/跨域/">跨域</a>
+    
+    </span>
+    
+    
+    <span id = "post-title-tags">
+    标签
+    
+    
+      
+      
+      <a href="/tags/跨域/">跨域</a>
+    
+    </span>
+    
+    
+      <br>
+      
+      
+    
+  </p>
+  
+</div>
+    
+        
+        
+        <div class="post-title-item">
+  
+  <a href="/2019/09/21/angular多语言/">
+  
+    angular多语言
+  
+  </a>
+  <p class="page-title-sub">
+    <span id = "post-title-date">9-21</span>
+    
+    <span id = "post-title-categories">分类
+    
+    
+      
+      
+      <a href="/categories/angular/">angular</a>
+    
+    </span>
+    
+    
+    <span id = "post-title-tags">
+    标签
+    
+    
+      
+      
+      <a href="/tags/angular/">angular</a>
+    
+    </span>
+    
+    
+      <br>
+      
+      
+    
+  </p>
+  
+</div>
+    
+        
+        
+        <div class="post-title-item">
+  
+  <a href="/2019/09/21/angular父子组件通讯/">
+  
+    angular父子组件通讯
+  
+  </a>
+  <p class="page-title-sub">
+    <span id = "post-title-date">9-21</span>
+    
+    <span id = "post-title-categories">分类
+    
+    
+      
+      
+      <a href="/categories/angular/">angular</a>
+    
+    </span>
+    
+    
+    <span id = "post-title-tags">
+    标签
+    
+    
+      
+      
+      <a href="/tags/angular/">angular</a>
+    
+    </span>
+    
+    
+      <br>
+      
+      
+    
+  </p>
+  
+</div>
+    
+        
+        
+        <div class="post-title-item">
+  
+  <a href="/2019/09/21/src跨域403问题/">
+  
+    src跨域403问题
+  
+  </a>
+  <p class="page-title-sub">
+    <span id = "post-title-date">9-21</span>
+    
+    <span id = "post-title-categories">分类
+    
+    
+      
+      
+      <a href="/categories/html/">html</a>
+    
+    </span>
+    
+    
+    <span id = "post-title-tags">
+    标签
+    
+    
+      
+      
+      <a href="/tags/html/">html</a>
+    
+    </span>
+    
+    
+      <br>
+      
+      
+    
+  </p>
+  
+</div>
+    
+        
+        
+            
+            <h3 class="archive-year-title">2018
+            
+                <span class="posts-count">
+                共
+                10
+                
+                    文章
+                
+                </span>
+            
+            </h3>
+        
+        <div class="post-title-item">
+  
+  <a href="/2018/07/17/flask/">
+  
+    flask相关笔记
+  
+  </a>
+  <p class="page-title-sub">
+    <span id = "post-title-date">7-17</span>
+    
+    <span id = "post-title-categories">分类
+    
+    
+      
+      
+      <a href="/categories/flask/">flask</a>
+    
+    </span>
+    
+    
+    <span id = "post-title-tags">
+    标签
+    
+    
+      
+      
+      <a href="/tags/flask/">flask</a>
+    
+    </span>
+    
+    
+      <br>
+      
+      
+    
+  </p>
+  
+</div>
+    
+        
+        
+        <div class="post-title-item">
+  
+  <a href="/2018/07/17/scrapy/">
+  
+    scrapy
+  
+  </a>
+  <p class="page-title-sub">
+    <span id = "post-title-date">7-17</span>
+    
+    <span id = "post-title-categories">分类
+    
+    
+      
+      
+      <a href="/categories/爬虫/">爬虫</a>
+    
+    </span>
+    
+    
+    <span id = "post-title-tags">
+    标签
+    
+    
+      
+      
+      <a href="/tags/scrapy/">scrapy</a>
+    
+    </span>
+    
+    
+      <br>
+      
+      
+    
+  </p>
+  
+</div>
+    
+        
+        
+        <div class="post-title-item">
+  
+  <a href="/2018/09/16/docker基础运用/">
+  
+    docker基础运用
+  
+  </a>
+  <p class="page-title-sub">
+    <span id = "post-title-date">9-16</span>
+    
+    <span id = "post-title-categories">分类
+    
+    
+      
+      
+      <a href="/categories/docker/">docker</a>
+    
+    </span>
+    
+    
+    <span id = "post-title-tags">
+    标签
+    
+    
+      
+      
+      <a href="/tags/docker/">docker</a>
+    
+    </span>
+    
+    
+      <br>
+      
+      
+    
+  </p>
+  
+</div>
+    
+        
+        
+        <div class="post-title-item">
+  
+  <a href="/2018/09/16/git常用命令/">
+  
+    git常用命令
+  
+  </a>
+  <p class="page-title-sub">
+    <span id = "post-title-date">9-16</span>
+    
+    <span id = "post-title-categories">分类
+    
+    
+      
+      
+      <a href="/categories/git/">git</a>
+    
+    </span>
+    
+    
+    <span id = "post-title-tags">
+    标签
+    
+    
+      
+      
+      <a href="/tags/git/">git</a>
+    
+    </span>
+    
+    
+      <br>
+      
+      
+    
+  </p>
+  
+</div>
+    
+        
+        
+            
+            <h3 class="archive-year-title">2019
+            
+                <span class="posts-count">
+                共
+                7
+                
+                    文章
+                
+                </span>
+            
+            </h3>
+        
+        <div class="post-title-item">
+  
+  <a href="/2019/09/21/x86-64安装h使用wkhtmltopdf/">
+  
+    x86_64安装h使用wkhtmltopdf
+  
+  </a>
+  <p class="page-title-sub">
+    <span id = "post-title-date">9-21</span>
+    
+    <span id = "post-title-categories">分类
+    
+    
+      
+      
+      <a href="/categories/linux/">linux</a>
+    
+    </span>
+    
+    
+    <span id = "post-title-tags">
+    标签
+    
+    
+      
+      
+      <a href="/tags/linux/">linux</a>
+    
+    </span>
+    
+    
+      <br>
+      
+      
+    
+  </p>
+  
+</div>
+    
+        
+        
+            
+            <h3 class="archive-year-title">2018
+            
+                <span class="posts-count">
+                共
+                10
+                
+                    文章
+                
+                </span>
+            
+            </h3>
+        
+        <div class="post-title-item">
+  
+  <a href="/2018/03/10/科学上网/">
+  
+    科学上网
+  
+  </a>
+  <p class="page-title-sub">
+    <span id = "post-title-date">3-10</span>
+    
+    <span id = "post-title-categories">分类
+    
+    
+      
+      
+      <a href="/categories/科学上网/">科学上网</a>
+    
+    </span>
+    
+    
+    <span id = "post-title-tags">
+    标签
+    
+    
+      
+      
+      <a href="/tags/科学上网/">科学上网</a>
+    
+    </span>
+    
+    
+      <br>
+      
+      
+    
+  </p>
+  
+</div>
+    
+        
+        
+        <div class="post-title-item">
+  
+  <a href="/2018/02/17/创建博客/">
+  
+    创建博客
+  
+  </a>
+  <p class="page-title-sub">
+    <span id = "post-title-date">2-17</span>
+    
+    <span id = "post-title-categories">分类
+    
+    
+      
+      
+      <a href="/categories/创建博客/">创建博客</a>
+    
+    </span>
+    
+    
+    <span id = "post-title-tags">
+    标签
+    
+    
+      
+      
+      <a href="/tags/创建博客/">创建博客</a>
+    
+    </span>
+    
+    
+      <br>
+      
+      
+    
+  </p>
+  
+</div>
+    
+        
+        
+        <div class="post-title-item">
+  
+  <a href="/2018/09/16/linux常用命令/">
+  
+    linux常用命令
+  
+  </a>
+  <p class="page-title-sub">
+    <span id = "post-title-date">9-16</span>
+    
+    <span id = "post-title-categories">分类
+    
+    
+      
+      
+      <a href="/categories/linux/">linux</a>
+    
+    </span>
+    
+    
+    <span id = "post-title-tags">
+    标签
+    
+    
+      
+      
+      <a href="/tags/linux操作/">linux操作</a>
+    
+    </span>
+    
+    
+      <br>
+      
+      
+    
+  </p>
+  
+</div>
+    
+        
+        
+        <div class="post-title-item">
+  
+  <a href="/2018/09/17/mysql进阶/">
+  
+    mysql进阶
+  
+  </a>
+  <p class="page-title-sub">
+    <span id = "post-title-date">9-17</span>
+    
+    <span id = "post-title-categories">分类
+    
+    
+      
+      
+      <a href="/categories/数据库/">数据库</a>
+    
+    </span>
+    
+    
+    <span id = "post-title-tags">
+    标签
+    
+    
+      
+      
+      <a href="/tags/mysql/">mysql</a>
+    
+    </span>
+    
+    
+      <br>
+      
+      
+    
+  </p>
+  
+</div>
+    
+  </div>
+
+
+  </article>
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by <a href="https://github.com/Ann32563/Ann32563.github.io.git">Ann</a> using Hexo
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="/miao.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/Ann32563">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://weibo.com/u/5265686023">
+        
+          <i class="icon iconfont weibo">&#xe602;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.zhihu.com/people/xiao-ya-jing-94/activities">
+        
+          <i class="icon iconfont zhihu">&#xe60b;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="http://blog.csdn.net/qq_40072810">
+        
+          csdn
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="http://www.cnblogs.com/Ann32563/">
+        
+          blog
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<div id="btn-view">Hide</div>
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["swirLeft","flash2"],"timer":true,"delay":10000,"shuffle":true,"count":30};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+
+var backgroundColor = "";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+

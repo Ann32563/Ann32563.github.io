@@ -1,0 +1,490 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Ann">
+  
+  
+  
+  
+    <meta name="description" content="1.基础1.模板渲染：render_template()相当于：
+template=Template(&quot;&lt;h2&gt;哈哈&lt;h2&gt;&quot;)
+template.render()
+2.静态使用，相当于反向解析：url_for(&apos;static&apos;,filename=&apos;hello.css&apos;)
+3.route规则：
+
+
+
+
+参数类...">
+  
+  <title>flask相关笔记 [ 代码的世界 ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+  
+
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
+
+</head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2018/07/17/scrapy/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        scrapy
+      </div>
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2018/03/10/Django项目上线/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        Django项目上线
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="/miao.jpg"/>
+          <div id="homelink">代码的世界</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/">首页</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">归档</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">标签</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">目录</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">关于我</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  
+
+  <article id="post">
+    <h1>flask相关笔记</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">撰写于 2018-07-17</span>
+      
+        <span id = "post-title-updated">修改于 2018-09-17</span>
+      
+      
+      <span id = "post-title-categories">分类
+      
+      
+        
+        
+        <a href="/categories/flask/">flask</a>
+      
+      </span>
+      
+      
+      <span id = "post-title-tags">
+      标签
+      
+      
+        
+        
+        <a href="/tags/flask/">flask</a>
+      
+      </span>
+      
+    </p>
+    
+    <h2 id="1-基础"><a href="#1-基础" class="headerlink" title="1.基础"></a>1.基础</h2><h5 id="1-模板渲染："><a href="#1-模板渲染：" class="headerlink" title="1.模板渲染："></a>1.模板渲染：</h5><p>render_template()<br>相当于：</p>
+<pre><code>template=Template(&quot;&lt;h2&gt;哈哈&lt;h2&gt;&quot;)
+template.render()
+</code></pre><h5 id="2-静态使用，相当于反向解析："><a href="#2-静态使用，相当于反向解析：" class="headerlink" title="2.静态使用，相当于反向解析："></a>2.静态使用，相当于反向解析：</h5><pre><code>url_for(&apos;static&apos;,filename=&apos;hello.css&apos;)
+</code></pre><h5 id="3-route规则："><a href="#3-route规则：" class="headerlink" title="3.route规则："></a>3.route规则：</h5><converter:variable_name>
+
+<table>
+<thead>
+<tr>
+<th>参数类型</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>string</td>
+<td>接收任何没有斜杠（‘/’）的文件（默认）</td>
+</tr>
+<tr>
+<td>int</td>
+<td>接收整型</td>
+</tr>
+<tr>
+<td>float</td>
+<td>接收浮点型</td>
+</tr>
+<tr>
+<td>path</td>
+<td>接收路径，可接收斜线（’/’）</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>只接受uuid字符串，唯一码，一种生成规则</td>
+</tr>
+<tr>
+<td>any</td>
+<td>可以同时指定多种路径，进行限定</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4-请求方法："><a href="#4-请求方法：" class="headerlink" title="4.请求方法："></a>4.请求方法：</h5><p>@app.route(‘/rule/’,methods=[‘GET’,’POST’])</p>
+<p>GET、 POST、 HEAD 、PUT 、DELETE</p>
+<table>
+<thead>
+<tr>
+<th>request属性</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>完整请求地址</td>
+</tr>
+<tr>
+<td>base_url</td>
+<td>去掉GET参数的URL</td>
+</tr>
+<tr>
+<td>host_url</td>
+<td>只有主机和端口号的URL</td>
+</tr>
+<tr>
+<td>path</td>
+<td>路由中的路径</td>
+</tr>
+<tr>
+<td>remote_addr</td>
+<td>请求的客户端地址</td>
+</tr>
+<tr>
+<td>args</td>
+<td>GET请求参数</td>
+</tr>
+<tr>
+<td>form</td>
+<td>POST请求参数</td>
+</tr>
+<tr>
+<td>files</td>
+<td>文件上传</td>
+</tr>
+<tr>
+<td>headers</td>
+<td>请求头</td>
+</tr>
+<tr>
+<td>cookies</td>
+<td>请求中的cookie</td>
+</tr>
+</tbody>
+</table>
+<h5 id="5-response："><a href="#5-response：" class="headerlink" title="5.response："></a>5.response：</h5><p>直接返回Response对象，返回文本内容，状态码，返回模板</p>
+<p>  通过make_response（data,code）</p>
+<p> data 返回的数据内容， code 状态码</p>
+<h5 id="6-主动终止执行-abort（statucode）"><a href="#6-主动终止执行-abort（statucode）" class="headerlink" title="6.主动终止执行   abort（statucode）"></a>6.主动终止执行   abort（statucode）</h5><p>捕获异常 </p>
+<pre><code>@app.errorhandler(404)
+def hello(e):
+    return &apos;error&apos;
+</code></pre><h5 id="7-迁移数据："><a href="#7-迁移数据：" class="headerlink" title="7.迁移数据："></a>7.迁移数据：</h5><pre><code>python manage.py db init
+python manage.py db migrate
+python manage.py db upgrade
+</code></pre><h2 id="2-解决循环引用"><a href="#2-解决循环引用" class="headerlink" title="2.解决循环引用"></a>2.解决循环引用</h2><h5 id="1-在views中实例化蓝图，蓝图在app中注册，路由使用蓝图注册"><a href="#1-在views中实例化蓝图，蓝图在app中注册，路由使用蓝图注册" class="headerlink" title="1.在views中实例化蓝图，蓝图在app中注册，路由使用蓝图注册"></a>1.在views中实例化蓝图，蓝图在app中注册，路由使用蓝图注册</h5><h5 id="2-用app对象实例化manager，用manager去run"><a href="#2-用app对象实例化manager，用manager去run" class="headerlink" title="2.用app对象实例化manager，用manager去run"></a>2.用app对象实例化manager，用manager去run</h5><h5 id="3-初始化数据库"><a href="#3-初始化数据库" class="headerlink" title="3.初始化数据库"></a>3.初始化数据库</h5><pre><code>db = SQLAlchemy()    
+db.init_app(app)
+</code></pre><h5 id="4-解决循环引用"><a href="#4-解决循环引用" class="headerlink" title="4.解决循环引用"></a>4.解决循环引用</h5><ul>
+<li>将app创建修改到 <strong>init</strong>中,并且不是直接调用，放在函数中<ul>
+<li>在函数中创建app对象</li>
+<li>app上去配置蓝图<ul>
+<li>从views导入蓝图，通过函数的形式，让对象先进行构造，但是不进行具体内容初始化（不进行app绑定）</li>
+</ul>
+</li>
+<li>app去初始化数据库<ul>
+<li>将所有第三方导入的库的对象统一放到ext中</li>
+<li>对外提供初始化方式和获取方式</li>
+<li>蓝图也可以放在这（开发中通常不会放在这，蓝图初始话需要运行的文件名，所以做一个特殊处理）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</converter:variable_name>
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">显示目录</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">隐藏目录</button>
+  <div class="random-toc">
+    <h2>目录</h2>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-基础"><span class="toc-text">1.基础</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-模板渲染："><span class="toc-text">1.模板渲染：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-静态使用，相当于反向解析："><span class="toc-text">2.静态使用，相当于反向解析：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-route规则："><span class="toc-text">3.route规则：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-请求方法："><span class="toc-text">4.请求方法：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-response："><span class="toc-text">5.response：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-主动终止执行-abort（statucode）"><span class="toc-text">6.主动终止执行   abort（statucode）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-迁移数据："><span class="toc-text">7.迁移数据：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-解决循环引用"><span class="toc-text">2.解决循环引用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-在views中实例化蓝图，蓝图在app中注册，路由使用蓝图注册"><span class="toc-text">1.在views中实例化蓝图，蓝图在app中注册，路由使用蓝图注册</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-用app对象实例化manager，用manager去run"><span class="toc-text">2.用app对象实例化manager，用manager去run</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-初始化数据库"><span class="toc-text">3.初始化数据库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-解决循环引用"><span class="toc-text">4.解决循环引用</span></a></li></ol></li></ol></li></ol></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+    <a href="/2018/07/17/scrapy/" class="prev">&larr; 上一篇 scrapy</a>
+  
+
+  
+
+  
+    <a href="/2018/03/10/Django项目上线/" class="next">下一篇 Django项目上线 &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by <a href="https://github.com/Ann32563/Ann32563.github.io.git">Ann</a> using Hexo
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="/miao.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/Ann32563">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://weibo.com/u/5265686023">
+        
+          <i class="icon iconfont weibo">&#xe602;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.zhihu.com/people/xiao-ya-jing-94/activities">
+        
+          <i class="icon iconfont zhihu">&#xe60b;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="http://blog.csdn.net/qq_40072810">
+        
+          csdn
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="http://www.cnblogs.com/Ann32563/">
+        
+          blog
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<div id="btn-view">Hide</div>
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["swirLeft","flash2"],"timer":true,"delay":10000,"shuffle":true,"count":30};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+
+var backgroundColor = "";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+

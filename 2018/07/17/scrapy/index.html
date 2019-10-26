@@ -1,0 +1,436 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Ann">
+  
+  
+  
+  
+    <meta name="description" content="入门新建项目1.创建一个新的scrapy项目：运行命令（运行命令后，会创建一个  “项目名” 文件夹）
+scrapy startproject 项目名
+2.打开项目目录下的 items.py，这个文件是项目的目标文件。  Item 定义结构化数据字段，⽤来保存爬取到的数据，可以通过创建⼀个 scrapy.Item 类， 并且定义类型为 scrapy.Field 的类属性来定义⼀个 Item（...">
+  
+  <title>scrapy [ 代码的世界 ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+  
+
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
+
+</head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2018/09/16/docker基础运用/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        docker基础运用
+      </div>
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2018/07/17/flask/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        flask相关笔记
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="/miao.jpg"/>
+          <div id="homelink">代码的世界</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/">首页</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">归档</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">标签</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">目录</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">关于我</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  
+
+  <article id="post">
+    <h1>scrapy</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">撰写于 2018-07-17</span>
+      
+        <span id = "post-title-updated">修改于 2018-09-17</span>
+      
+      
+      <span id = "post-title-categories">分类
+      
+      
+        
+        
+        <a href="/categories/爬虫/">爬虫</a>
+      
+      </span>
+      
+      
+      <span id = "post-title-tags">
+      标签
+      
+      
+        
+        
+        <a href="/tags/scrapy/">scrapy</a>
+      
+      </span>
+      
+    </p>
+    
+    <h2 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h2><h4 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h4><h5 id="1-创建一个新的scrapy项目："><a href="#1-创建一个新的scrapy项目：" class="headerlink" title="1.创建一个新的scrapy项目："></a>1.创建一个新的scrapy项目：</h5><p>运行命令（运行命令后，会创建一个  “项目名” 文件夹）</p>
+<pre><code>scrapy startproject 项目名
+</code></pre><h5 id="2-打开项目目录下的-items-py，这个文件是项目的目标文件。"><a href="#2-打开项目目录下的-items-py，这个文件是项目的目标文件。" class="headerlink" title="2.打开项目目录下的 items.py，这个文件是项目的目标文件。"></a>2.打开项目目录下的 items.py，这个文件是项目的目标文件。</h5><p>  Item 定义结构化数据字段，⽤来保存爬取到的数据，可以通过创建⼀个 scrapy.Item 类， 并且定义类型为 scrapy.Field 的类属性来定义⼀个 Item（可以理解成类似于 ORM 的映射关系）。</p>
+<h5 id="3-创建一个类，并且构建item模型（model）"><a href="#3-创建一个类，并且构建item模型（model）" class="headerlink" title="3.创建一个类，并且构建item模型（model）"></a>3.创建一个类，并且构建item模型（model）</h5><h5 id="4-创建爬虫："><a href="#4-创建爬虫：" class="headerlink" title="4.创建爬虫："></a>4.创建爬虫：</h5><p>（会在  项目/spider目录下创建一个爬虫）</p>
+<pre><code>scrapy genspider  爬虫名字  &quot;目标网址&quot;
+</code></pre><h5 id="5-运行爬虫："><a href="#5-运行爬虫：" class="headerlink" title="5.运行爬虫："></a>5.运行爬虫：</h5><pre><code>scrapy crawl 爬虫的名字
+</code></pre><p>  （运⾏之后，如果打印的⽇志出现 [scrapy] INFO: Spider closed (finished) ，代表执⾏完成。）</p>
+<h5 id="6-保存数据："><a href="#6-保存数据：" class="headerlink" title="6.保存数据："></a>6.保存数据：</h5><p>-o 输出指定格式的文件</p>
+<p>json 格式，默认为 Unicode 编码 </p>
+<pre><code>scrapy crawl 爬虫名 -o 文件名.json
+</code></pre><p>json lines 格式，默认为 Unicode 编码 </p>
+<pre><code>scrapy crawl 爬虫名 -o 文件名.jsonl
+</code></pre><p>csv 格式，可⽤Excel 打开 </p>
+<pre><code>scrapy crawl 爬虫名 -o 文件名.csv
+</code></pre><p> xml 格式</p>
+<pre><code>scrapy crawl 爬虫名 -o 文件名.xml
+</code></pre><ul>
+<li style="list-style: none"><input type="checkbox" checked> ·解决python2的中文编码问题</li>
+</ul>
+<pre><code>import sys 
+reload(sys)
+sys.setdefaultencoding(&quot;utf-8&quot;)
+</code></pre><h2 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h2><h5 id="1-item-pipeline-的⼀些典型应⽤："><a href="#1-item-pipeline-的⼀些典型应⽤：" class="headerlink" title="1.item pipeline 的⼀些典型应⽤："></a>1.item pipeline 的⼀些典型应⽤：</h5><ul>
+<li><p>~验证爬取的数据(检查 item 包含某些字段，⽐如说 name 字段) </p>
+</li>
+<li><p>~查重(并丢弃) </p>
+</li>
+<li><p>~将爬取结果保存到文件或者数据库中</p>
+</li>
+<li><h5 id="2-启用item-pipeline："><a href="#2-启用item-pipeline：" class="headerlink" title="2.启用item pipeline："></a>2.启用item pipeline：</h5>在settings.py中配置：</li>
+</ul>
+<pre><code>ITEM_PIPELINES ={&apos;mySpider.pipelines.SomePipeline&apos;: 300,  }
+</code></pre><p>（分配给每个类的整型值，确定了他们运⾏的顺序，item 按数字从低到⾼的顺 序，通过 pipeline，通常将这些数字定义在 0-1000 范围内（0-1000 随意设 置，数值越低，组件的优先级越高））</p>
+<h2 id="高级"><a href="#高级" class="headerlink" title="高级"></a>高级</h2><h4 id="CrawlSpiders"><a href="#CrawlSpiders" class="headerlink" title="CrawlSpiders"></a>CrawlSpiders</h4><p>CrawlSpiders是 Spider 的派⽣类，Spider 类的设计原则是只爬取 start_url 列表中的网页， 而CrawlSpider 类定义了⼀些规则(rule)来提供跟进 link 的⽅便的机制，从爬 取 的网页中获取 link 并继续爬取的⼯作更适合。 CrawlSpider 继承于 Spider 类，除了继承过来的属性外（name、 allow_domains），还提供了⼀个新的属性和⽅法:</p>
+<h5 id="1-rules："><a href="#1-rules：" class="headerlink" title="1.rules："></a>1.rules：</h5><p>在 rules 中包含⼀个或多个 Rule 对象，每个 Rule 对爬取⽹站的动作定义了特定操作。</p>
+<p>link_extractor ：是⼀个 </p>
+<p>Link Extractor 对象，⽤于定义需要提取的链接。</p>
+<p>callback ： 从 </p>
+<p>link_extractor 中每获取到链接时，参数所指定的值作为回调函数，该回调函数接受⼀个 response 作为其第⼀个参数。<br>（注意：当编写爬⾍规则时，避免使⽤parse 作为回调函数。由于 CrawlSpider 使⽤parse⽅法来实现其逻辑，如果覆盖了 parse⽅ 法，crawl spider 将会运⾏失败。）</p>
+<p>follow ：是⼀个布尔(boolean)值，指定了根据该规则从 response 提取 的链接是否需要跟进。 如果 callback 为 None，follow 默认设置为 True ， 否则默认为 False。 </p>
+<p>process_links ：指定该 spider 中哪个的函数将会被调⽤，从 link_extractor 中获取到链接列表时将会调⽤该函数。该⽅法主要⽤ 来过 滤。 </p>
+<p>process_request ：指定该 spider 中哪个的函数将会被调⽤， 该规则 提 取到每个 request 时都会调⽤该函数。 (⽤来过滤 request)</p>
+<h5 id="2-parse-start-url-response-：提取链接｡"><a href="#2-parse-start-url-response-：提取链接｡" class="headerlink" title="2.parse_start_url(response)：提取链接｡"></a>2.parse_start_url(response)：提取链接｡</h5><p>每个 LinkExtractor 有唯⼀的公共⽅法是 extract_links()，它接收⼀个 Response 对象，并返回⼀个 scrapy.link.Link 对象。 Link Extractors 要实例化⼀次，并且 extract_links ⽅法会根据不同的 response 调⽤多次提取链接｡</p>
+<p>allow ：满⾜括号中“正则表达式”的值会被提取，如果为空，则全部匹 配。 </p>
+<p>deny ：与这个正则表达式(或正则表达式列表)不匹配的 URL⼀定不提 取。 </p>
+<p>allow_domains ：会被提取的链接的 domains。 </p>
+<p>deny_domains ：⼀定不会被提取链接的 domains。</p>
+<p>restrict_xpaths ：使⽤xpath 表达式，和 allow 共同作⽤过滤链接。</p>
+<h5 id="3-Logging"><a href="#3-Logging" class="headerlink" title="3.Logging"></a>3.Logging</h5><p>在settings中配置：</p>
+<h6 id="1-LOG-ENABLED-默认-True，"><a href="#1-LOG-ENABLED-默认-True，" class="headerlink" title="1. LOG_ENABLED 默认: True，"></a>1. LOG_ENABLED 默认: True，</h6><p>启⽤logging </p>
+<h6 id="2-LOG-ENCODING-默认-‘utf-8’，"><a href="#2-LOG-ENCODING-默认-‘utf-8’，" class="headerlink" title="2. LOG_ENCODING 默认: ‘utf-8’，"></a>2. LOG_ENCODING 默认: ‘utf-8’，</h6><p>logging 使⽤的编码 </p>
+<h6 id="3-LOG-FILE-默认-None，"><a href="#3-LOG-FILE-默认-None，" class="headerlink" title="3. LOG_FILE 默认: None，"></a>3. LOG_FILE 默认: None，</h6><p>在当前⽬录⾥创建 logging 输出⽂件的⽂件名 </p>
+<h6 id="4-LOG-LEVEL-默认-‘DEBUG’，"><a href="#4-LOG-LEVEL-默认-‘DEBUG’，" class="headerlink" title="4. LOG_LEVEL 默认: ‘DEBUG’，"></a>4. LOG_LEVEL 默认: ‘DEBUG’，</h6><p>log 的最低级别 </p>
+<h6 id="5-LOG-STDOUT-默认-False"><a href="#5-LOG-STDOUT-默认-False" class="headerlink" title="5. LOG_STDOUT 默认: False"></a>5. LOG_STDOUT 默认: False</h6><p>如果为 True，进程所有的标准输出(及错误) 将 会被重定向到 log 中。</p>
+<h4 id="Spider-参数"><a href="#Spider-参数" class="headerlink" title="Spider 参数"></a>Spider 参数</h4><p>Spider 可以通过接受参数来修改其功能。 spider 参数⼀般⽤来定义初始 URL 或者指定限制爬取⽹站的部分。 您也可以 使⽤其来配置 spider 的任何功能。 在运⾏ crawl 时添加 -a 可以传递 Spider 参数:</p>
+<pre><code>scrapy crawl myspider -a category=electronics
+
+
+yield scrapy.Request(url, self.parse)
+</code></pre><p>url: 就是需要请求，并进⾏下⼀步处理的<br>url callback: 指定该请求返回的 Response，由那个函数来处理。 </p>
+<p>method: 请求⼀般不需要指定，默认 GET⽅法，可设置为”GET”, “POST”, “PUT” 等，且保证字符串⼤写 </p>
+<p>headers: 请求时，包含的头⽂件。⼀般不需要。</p>
+<p>meta: ⽐较常⽤，在不同的请求之间传递数据使⽤的。字典型  </p>
+<p>encoding: 使⽤默认的 ‘utf-8’ 就⾏。 </p>
+<p>dont_filter: 表明该请求不由调度器过滤。这是当你想使⽤多次执⾏相同的请求, 忽略重复的过滤器。默认为 False。 </p>
+<p>errback: 指定错误处理函数<br>模拟登陆<br>使⽤FormRequest.from_response()⽅法模拟⽤户登录<br>cookie</p>
+<p>HTTP 是⽆状态的⾯向连接的协议, 为了保持连接状态, 引⼊了 Cookie 机制 Cookie 是 http 消息头中的⼀种属性</p>
+<h4 id="反爬策略"><a href="#反爬策略" class="headerlink" title="反爬策略"></a>反爬策略</h4><h5 id="动态设置-1-User-Agent"><a href="#动态设置-1-User-Agent" class="headerlink" title="动态设置 1.User-Agent"></a>动态设置 1.User-Agent</h5><p>（随机切换 User-Agent，模拟不同⽤户的浏览器信 息） </p>
+<h5 id="2-禁⽤Cookies（也就是不启⽤cookies"><a href="#2-禁⽤Cookies（也就是不启⽤cookies" class="headerlink" title="2.禁⽤Cookies（也就是不启⽤cookies"></a>2.禁⽤Cookies（也就是不启⽤cookies</h5><p>middleware，不向 Server 发送 cookies，有些⽹站通过 cookie 的使⽤发现爬⾍⾏为） 可以通过 COOKIES_ENABLED 控制 CookiesMiddleware 开启或关闭 </p>
+<h5 id="3-设置延迟下载"><a href="#3-设置延迟下载" class="headerlink" title="3.设置延迟下载"></a>3.设置延迟下载</h5><p>（防⽌访问过于频繁，设置为 2 秒 或更⾼） </p>
+<h5 id="4-Google-Cache-和-Baidu-Cache："><a href="#4-Google-Cache-和-Baidu-Cache：" class="headerlink" title="4.Google Cache 和 Baidu Cache："></a>4.Google Cache 和 Baidu Cache：</h5><p>如果可能的话，使⽤⾕歌/百度等搜索 引擎服务器⻚⾯缓存获取⻚⾯数据。 </p>
+<h5 id="5-使⽤IP-地址池："><a href="#5-使⽤IP-地址池：" class="headerlink" title="5.使⽤IP 地址池："></a>5.使⽤IP 地址池：</h5><p>VPN 和代理 IP，现在⼤部分⽹站都是根据 IP 来反爬的。 </p>
+<h5 id="6-使⽤-Crawlera"><a href="#6-使⽤-Crawlera" class="headerlink" title="6.使⽤ Crawlera"></a>6.使⽤ Crawlera</h5><p>（专⽤于爬⾍的代理组件），正确配置和设置下载中间件 后，项⽬所有的 request 都是通过 crawlera 发出。</p>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">显示目录</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">隐藏目录</button>
+  <div class="random-toc">
+    <h2>目录</h2>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#入门"><span class="toc-text">入门</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#新建项目"><span class="toc-text">新建项目</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-创建一个新的scrapy项目："><span class="toc-text">1.创建一个新的scrapy项目：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-打开项目目录下的-items-py，这个文件是项目的目标文件。"><span class="toc-text">2.打开项目目录下的 items.py，这个文件是项目的目标文件。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-创建一个类，并且构建item模型（model）"><span class="toc-text">3.创建一个类，并且构建item模型（model）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-创建爬虫："><span class="toc-text">4.创建爬虫：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-运行爬虫："><span class="toc-text">5.运行爬虫：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-保存数据："><span class="toc-text">6.保存数据：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进阶"><span class="toc-text">进阶</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-item-pipeline-的⼀些典型应⽤："><span class="toc-text">1.item pipeline 的⼀些典型应⽤：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-启用item-pipeline："><span class="toc-text">2.启用item pipeline：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高级"><span class="toc-text">高级</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CrawlSpiders"><span class="toc-text">CrawlSpiders</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-rules："><span class="toc-text">1.rules：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-parse-start-url-response-：提取链接｡"><span class="toc-text">2.parse_start_url(response)：提取链接｡</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-Logging"><span class="toc-text">3.Logging</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-LOG-ENABLED-默认-True，"><span class="toc-text">1. LOG_ENABLED 默认: True，</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-LOG-ENCODING-默认-‘utf-8’，"><span class="toc-text">2. LOG_ENCODING 默认: ‘utf-8’，</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-LOG-FILE-默认-None，"><span class="toc-text">3. LOG_FILE 默认: None，</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-LOG-LEVEL-默认-‘DEBUG’，"><span class="toc-text">4. LOG_LEVEL 默认: ‘DEBUG’，</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5-LOG-STDOUT-默认-False"><span class="toc-text">5. LOG_STDOUT 默认: False</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Spider-参数"><span class="toc-text">Spider 参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#反爬策略"><span class="toc-text">反爬策略</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#动态设置-1-User-Agent"><span class="toc-text">动态设置 1.User-Agent</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-禁⽤Cookies（也就是不启⽤cookies"><span class="toc-text">2.禁⽤Cookies（也就是不启⽤cookies</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-设置延迟下载"><span class="toc-text">3.设置延迟下载</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-Google-Cache-和-Baidu-Cache："><span class="toc-text">4.Google Cache 和 Baidu Cache：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-使⽤IP-地址池："><span class="toc-text">5.使⽤IP 地址池：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-使⽤-Crawlera"><span class="toc-text">6.使⽤ Crawlera</span></a></li></ol></li></ol></li></ol></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+    <a href="/2018/09/16/docker基础运用/" class="prev">&larr; 上一篇 docker基础运用</a>
+  
+
+  
+
+  
+    <a href="/2018/07/17/flask/" class="next">下一篇 flask相关笔记 &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by <a href="https://github.com/Ann32563/Ann32563.github.io.git">Ann</a> using Hexo
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="/miao.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/Ann32563">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://weibo.com/u/5265686023">
+        
+          <i class="icon iconfont weibo">&#xe602;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.zhihu.com/people/xiao-ya-jing-94/activities">
+        
+          <i class="icon iconfont zhihu">&#xe60b;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="http://blog.csdn.net/qq_40072810">
+        
+          csdn
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="http://www.cnblogs.com/Ann32563/">
+        
+          blog
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<div id="btn-view">Hide</div>
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["swirLeft","flash2"],"timer":true,"delay":10000,"shuffle":true,"count":30};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+
+var backgroundColor = "";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+

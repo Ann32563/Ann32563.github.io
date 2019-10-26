@@ -1,0 +1,410 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Ann">
+  
+  
+  
+  
+    <meta name="description" content="虚拟环境1.创建：mkvirtualenv  虚拟环境名称  -p  路径 
+mkvirtualenv  djangoproject   -p /usr/bin/python3
+2.删除：rmvirtualenv    虚拟环境名称
+rmvirtualenv djangoproject
+3.进入：workon  虚拟环境名称
+workon djangoproject
+4.退出：deactiv...">
+  
+  <title>Django开发流程 [ 代码的世界 ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+  
+
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
+
+</head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2018/03/10/Django项目上线/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        Django项目上线
+      </div>
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2018/03/10/科学上网/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        科学上网
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="/miao.jpg"/>
+          <div id="homelink">代码的世界</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/">首页</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">归档</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">标签</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">目录</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">关于我</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  
+
+  <article id="post">
+    <h1>Django开发流程</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">撰写于 2018-03-10</span>
+      
+        <span id = "post-title-updated">修改于 2018-09-17</span>
+      
+      
+      <span id = "post-title-categories">分类
+      
+      
+        
+        
+        <a href="/categories/Django/">Django</a>
+      
+      </span>
+      
+      
+      <span id = "post-title-tags">
+      标签
+      
+      
+        
+        
+        <a href="/tags/Django/">Django</a>
+      
+      </span>
+      
+    </p>
+    
+    <h3 id="虚拟环境"><a href="#虚拟环境" class="headerlink" title="虚拟环境"></a>虚拟环境</h3><h6 id="1-创建："><a href="#1-创建：" class="headerlink" title="1.创建："></a>1.创建：</h6><pre><code>mkvirtualenv  虚拟环境名称  -p  路径 
+mkvirtualenv  djangoproject   -p /usr/bin/python3
+</code></pre><h6 id="2-删除："><a href="#2-删除：" class="headerlink" title="2.删除："></a>2.删除：</h6><pre><code>rmvirtualenv    虚拟环境名称
+rmvirtualenv djangoproject
+</code></pre><h6 id="3-进入："><a href="#3-进入：" class="headerlink" title="3.进入："></a>3.进入：</h6><pre><code>workon  虚拟环境名称
+workon djangoproject
+</code></pre><h6 id="4-退出："><a href="#4-退出：" class="headerlink" title="4.退出："></a>4.退出：</h6><pre><code>deactivate
+</code></pre><h6 id="5-查看虚拟环境新安装的包："><a href="#5-查看虚拟环境新安装的包：" class="headerlink" title="5.查看虚拟环境新安装的包："></a>5.查看虚拟环境新安装的包：</h6><pre><code>pip freeze
+</code></pre><p>6.将环境中安装的包生成一个文本文件：</p>
+<pre><code>pip freeze &gt;requirments.txt
+</code></pre><h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><h6 id="1-查看数据库编码"><a href="#1-查看数据库编码" class="headerlink" title="1.查看数据库编码:"></a>1.查看数据库编码:</h6><pre><code>show variables like &apos;character_set_database&apos;;
+</code></pre><h6 id="2-创建数据库并指定编码："><a href="#2-创建数据库并指定编码：" class="headerlink" title="2.创建数据库并指定编码："></a>2.创建数据库并指定编码：</h6><pre><code>create database 数据库名 charset utf8;
+</code></pre><h3 id="django项目"><a href="#django项目" class="headerlink" title="django项目"></a>django项目</h3><h6 id="1-创建项目："><a href="#1-创建项目：" class="headerlink" title="1.创建项目："></a>1.创建项目：</h6><pre><code>django-admin startproject  工程名
+</code></pre><h6 id="2-测试服务器启动："><a href="#2-测试服务器启动：" class="headerlink" title="2.测试服务器启动："></a>2.测试服务器启动：</h6><pre><code>python manage.py runserver ip:port
+</code></pre><p>（ip和端口也可以不指定，ip写0.0.0.0时，匹配本机的所有ip）</p>
+<h6 id="3-迁移数据："><a href="#3-迁移数据：" class="headerlink" title="3.迁移数据："></a>3.迁移数据：</h6><p>(1)生成迁移:</p>
+<pre><code>python manage.py makemigrations
+</code></pre><p>(2)执行迁移:</p>
+<pre><code>python manange.py migrate
+</code></pre><h6 id="4-连接数据库："><a href="#4-连接数据库：" class="headerlink" title="4.连接数据库："></a>4.连接数据库：</h6><p>在<strong>init</strong>.py中添加初始化代码： </p>
+<pre><code>import pymysql
+pymysql.install_as_MySQLdb()
+</code></pre><h6 id="5-创建应用："><a href="#5-创建应用：" class="headerlink" title="5.创建应用："></a>5.创建应用：</h6><pre><code>python manage.py startapp 应用名
+</code></pre><h6 id="6-在settings中进行相应配置（应用，编码，数据库）"><a href="#6-在settings中进行相应配置（应用，编码，数据库）" class="headerlink" title="6.在settings中进行相应配置（应用，编码，数据库）"></a>6.在settings中进行相应配置（应用，编码，数据库）</h6><p>(1)数据库：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DATABASES = &#123;</span><br><span class="line">    &apos;default&apos;: &#123;</span><br><span class="line">        &apos;ENGINE&apos;: &apos;django.db.backends.mysql&apos;,</span><br><span class="line">        &apos;NAME&apos;: &apos;数据库名&apos;,</span><br><span class="line">        &apos;USER&apos;:&apos;root&apos;,</span><br><span class="line">        &apos;PASSWORD&apos;:&apos;数据库密码&apos;,</span><br><span class="line">        &apos;HOST&apos;:&apos;127.0.0.1&apos;,</span><br><span class="line">        &apos;PORT&apos;:&apos;3306&apos;,		&#125;	&#125;</span><br></pre></td></tr></table></figure>
+<p>(2)显示中文：</p>
+<pre><code>LANGUAGE_CODE = &apos;zh-hans&apos;
+TIME_ZONE = &apos;Asia/Shanghai&apos;
+</code></pre><h6 id="7-新建视图views-py"><a href="#7-新建视图views-py" class="headerlink" title="7.新建视图views.py"></a>7.新建视图views.py</h6><p>定义视图函数</p>
+<h6 id="8-注册路由"><a href="#8-注册路由" class="headerlink" title="8.注册路由"></a>8.注册路由</h6><p>在应用的urls.py中进行注册，在项目的urls.py中将应用包含进去</p>
+<h6 id="9-创建模板："><a href="#9-创建模板：" class="headerlink" title="9.创建模板："></a>9.创建模板：</h6><p>在settings中的TEMPLATES中的DIRS中添加      </p>
+<pre><code>os.path.join(BASE_DIR,&apos;templates&apos;)
+</code></pre><h6 id="10-在views中去加载渲染模板"><a href="#10-在views中去加载渲染模板" class="headerlink" title="10.在views中去加载渲染模板"></a>10.在views中去加载渲染模板</h6><p>  (1)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def hello(request):</span><br><span class="line">    template = loader.get_template(&apos;hello.html&apos;)</span><br><span class="line">  	return HttpResponse(template.render())</span><br></pre></td></tr></table></figure></p>
+<p>  (2)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def hello(request): </span><br><span class="line">    return render(request,&apos;hello.html&apos;)</span><br></pre></td></tr></table></figure></p>
+<h6 id="11-定义模型：（新建类，继承models-Model，变量对应数据库的字段）"><a href="#11-定义模型：（新建类，继承models-Model，变量对应数据库的字段）" class="headerlink" title="11.定义模型：（新建类，继承models.Model，变量对应数据库的字段）"></a>11.定义模型：（新建类，继承models.Model，变量对应数据库的字段）</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class Grade(models.Model):</span><br><span class="line">    g_name = models.CharField(max_length=16)</span><br><span class="line">    g_student_num = models.IntegerField(default=2)</span><br></pre></td></tr></table></figure>
+<h6 id="12-在设置中配置静态文件夹："><a href="#12-在设置中配置静态文件夹：" class="headerlink" title="12.在设置中配置静态文件夹："></a>12.在设置中配置静态文件夹：</h6><pre><code>STATICFILES_DIRS = [
+os.path.join(BASE_DIR,&apos;static&apos;)
+</code></pre><p>]</p>
+<h6 id="13-配置中间件："><a href="#13-配置中间件：" class="headerlink" title="13.配置中间件："></a>13.配置中间件：</h6><p>直接在setting中添加自己创的中间件文件夹里的文件的类路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">MIDDLEWARE = [</span><br><span class="line">    &apos;django.middleware.security.SecurityMiddleware&apos;,</span><br><span class="line">    &apos;django.contrib.sessions.middleware.SessionMiddleware&apos;,</span><br><span class="line">    &apos;django.middleware.common.CommonMiddleware&apos;,</span><br><span class="line">    &apos;django.middleware.csrf.CsrfViewMiddleware&apos;,</span><br><span class="line">    &apos;django.contrib.auth.middleware.AuthenticationMiddleware&apos;,</span><br><span class="line">    &apos;django.contrib.messages.middleware.MessageMiddleware&apos;,</span><br><span class="line">    &apos;django.middleware.clickjacking.XFrameOptionsMiddleware&apos;,</span><br><span class="line">    &apos;middleware.LearnMiddleware.TotalMiddle&apos;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h6 id="14-上传文件："><a href="#14-上传文件：" class="headerlink" title="14.上传文件："></a>14.上传文件：</h6><pre><code>MEDIA_ROOT = [
+os.path.join(BASE_DIR,&apos;static/uploadfiles&apos;)
+</code></pre><p>]</p>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">显示目录</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">隐藏目录</button>
+  <div class="random-toc">
+    <h2>目录</h2>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#虚拟环境"><span class="toc-text">虚拟环境</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-创建："><span class="toc-text">1.创建：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-删除："><span class="toc-text">2.删除：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-进入："><span class="toc-text">3.进入：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-退出："><span class="toc-text">4.退出：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5-查看虚拟环境新安装的包："><span class="toc-text">5.查看虚拟环境新安装的包：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库"><span class="toc-text">数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-查看数据库编码"><span class="toc-text">1.查看数据库编码:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-创建数据库并指定编码："><span class="toc-text">2.创建数据库并指定编码：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#django项目"><span class="toc-text">django项目</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-创建项目："><span class="toc-text">1.创建项目：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-测试服务器启动："><span class="toc-text">2.测试服务器启动：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-迁移数据："><span class="toc-text">3.迁移数据：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-连接数据库："><span class="toc-text">4.连接数据库：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5-创建应用："><span class="toc-text">5.创建应用：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#6-在settings中进行相应配置（应用，编码，数据库）"><span class="toc-text">6.在settings中进行相应配置（应用，编码，数据库）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#7-新建视图views-py"><span class="toc-text">7.新建视图views.py</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#8-注册路由"><span class="toc-text">8.注册路由</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#9-创建模板："><span class="toc-text">9.创建模板：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#10-在views中去加载渲染模板"><span class="toc-text">10.在views中去加载渲染模板</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#11-定义模型：（新建类，继承models-Model，变量对应数据库的字段）"><span class="toc-text">11.定义模型：（新建类，继承models.Model，变量对应数据库的字段）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#12-在设置中配置静态文件夹："><span class="toc-text">12.在设置中配置静态文件夹：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#13-配置中间件："><span class="toc-text">13.配置中间件：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#14-上传文件："><span class="toc-text">14.上传文件：</span></a></li></ol></li></ol></li></ol></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+    <a href="/2018/03/10/Django项目上线/" class="prev">&larr; 上一篇 Django项目上线</a>
+  
+
+  
+
+  
+    <a href="/2018/03/10/科学上网/" class="next">下一篇 科学上网 &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by <a href="https://github.com/Ann32563/Ann32563.github.io.git">Ann</a> using Hexo
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="/miao.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/Ann32563">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://weibo.com/u/5265686023">
+        
+          <i class="icon iconfont weibo">&#xe602;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.zhihu.com/people/xiao-ya-jing-94/activities">
+        
+          <i class="icon iconfont zhihu">&#xe60b;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="http://blog.csdn.net/qq_40072810">
+        
+          csdn
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="http://www.cnblogs.com/Ann32563/">
+        
+          blog
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<div id="btn-view">Hide</div>
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["swirLeft","flash2"],"timer":true,"delay":10000,"shuffle":true,"count":30};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+
+var backgroundColor = "";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+

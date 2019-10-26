@@ -1,0 +1,425 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Ann">
+  
+  
+  
+  
+    <meta name="description" content="1.安装依赖npm install @ngx-translate/core --save
+
+npm install @ngx-translate/http-loader --save
+2.引入模块在app.module.ts中引入
+import { HttpClientModule, HttpClient } from &apos;@angular/common/http&apos;;
+
+i...">
+  
+  <title>angular多语言 [ 代码的世界 ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+  
+
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
+
+</head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2019/09/21/angular环境准备及项目创建/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        angular环境准备及项目创建
+      </div>
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2019/09/21/angular父子组件通讯/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        angular父子组件通讯
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="/miao.jpg"/>
+          <div id="homelink">代码的世界</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/">首页</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">归档</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">标签</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">目录</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">关于我</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  
+
+  <article id="post">
+    <h1>angular多语言</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">撰写于 2019-09-21</span>
+      
+        <span id = "post-title-updated">修改于 2019-09-21</span>
+      
+      
+      <span id = "post-title-categories">分类
+      
+      
+        
+        
+        <a href="/categories/angular/">angular</a>
+      
+      </span>
+      
+      
+      <span id = "post-title-tags">
+      标签
+      
+      
+        
+        
+        <a href="/tags/angular/">angular</a>
+      
+      </span>
+      
+    </p>
+    
+    <h2 id="1-安装依赖"><a href="#1-安装依赖" class="headerlink" title="1.安装依赖"></a>1.安装依赖</h2><pre><code>npm install @ngx-translate/core --save
+
+npm install @ngx-translate/http-loader --save
+</code></pre><h2 id="2-引入模块"><a href="#2-引入模块" class="headerlink" title="2.引入模块"></a>2.引入模块</h2><p>在app.module.ts中引入</p>
+<pre><code>import { HttpClientModule, HttpClient } from &apos;@angular/common/http&apos;;
+
+import { TranslateModule, TranslateLoader } from &apos;@ngx-translate/core&apos;; import { TranslateHttpLoader } from &apos;@ngx-translate/http-loader&apos;;
+
+
+
+export function HttpLoaderFactory(httpClient: HttpClient) {
+
+　　　　return new TranslateHttpLoader(httpClient);
+
+　　}
+</code></pre><p>@ngmodule导入</p>
+<pre><code>imports: [
+
+TranslateModule.forRoot({
+
+loader: {
+
+provide: TranslateLoader,
+
+useFactory: HttpLoaderFactory,
+
+deps: [HttpClient]
+
+}
+
+})
+
+]
+</code></pre><h2 id="3-添加多语言文件"><a href="#3-添加多语言文件" class="headerlink" title="3.添加多语言文件"></a>3.添加多语言文件</h2><p>assets/i18n/en.json</p>
+<pre><code>{&quot;welcome&quot;:&quot;WELCOME&quot;}
+</code></pre><p>assets/i18n/zh.json</p>
+<pre><code>{&quot;welcome&quot;:&quot;欢迎&quot;}
+</code></pre><h2 id="4-初始化语言"><a href="#4-初始化语言" class="headerlink" title="4.初始化语言"></a>4.初始化语言</h2><p>在app.component.ts添加语言初始化，默认为浏览器语言</p>
+<pre><code>import { TranslateService } from &apos;@ngx-translate/core&apos;;
+
+
+
+constructor(public translate: TranslateService) {
+
+translate.addLangs([&quot;zh&quot;, &quot;en&quot;]);
+
+translate.setDefaultLang(&apos;zh&apos;);
+
+
+
+const browserLang = translate.getBrowserLang();
+
+//修改语言
+
+translate.use(browserLang.match(/zh|en/) ? browserLang : &apos;zh&apos;);
+
+}
+</code></pre><h2 id="5-使用"><a href="#5-使用" class="headerlink" title="5.使用"></a>5.使用</h2><pre><code>{{”welcome“|translate}}
+</code></pre>
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">显示目录</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">隐藏目录</button>
+  <div class="random-toc">
+    <h2>目录</h2>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-安装依赖"><span class="toc-text">1.安装依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-引入模块"><span class="toc-text">2.引入模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-添加多语言文件"><span class="toc-text">3.添加多语言文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-初始化语言"><span class="toc-text">4.初始化语言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-使用"><span class="toc-text">5.使用</span></a></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+    <a href="/2019/09/21/angular环境准备及项目创建/" class="prev">&larr; 上一篇 angular环境准备及项目创建</a>
+  
+
+  
+
+  
+    <a href="/2019/09/21/angular父子组件通讯/" class="next">下一篇 angular父子组件通讯 &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by <a href="https://github.com/Ann32563/Ann32563.github.io.git">Ann</a> using Hexo
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="/miao.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/Ann32563">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://weibo.com/u/5265686023">
+        
+          <i class="icon iconfont weibo">&#xe602;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.zhihu.com/people/xiao-ya-jing-94/activities">
+        
+          <i class="icon iconfont zhihu">&#xe60b;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="http://blog.csdn.net/qq_40072810">
+        
+          csdn
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="http://www.cnblogs.com/Ann32563/">
+        
+          blog
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<div id="btn-view">Hide</div>
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["swirLeft","flash2"],"timer":true,"delay":10000,"shuffle":true,"count":30};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+
+var backgroundColor = "";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+
